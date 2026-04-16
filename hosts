@@ -10,6 +10,8 @@
 192.168.10.43
 192.168.10.44
 
-[workstations]
+[workstations_ville]
 Ville-T470s
+
+[workstations_sari]
 Sari-X13
