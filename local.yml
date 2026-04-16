@@ -22,7 +22,12 @@
    roles:
      - k3s_servers
 
- - hosts: workstations
+ - hosts: workstations_sari
    become: true
    roles:
-     - workstations
+     - workstations_sari
+
+ - hosts: workstations_ville
+   become: true
+   roles:
+     - workstations_ville
