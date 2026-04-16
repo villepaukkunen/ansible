@@ -1,0 +1,28 @@
+ - hosts: all
+   become: true
+   pre_tasks:
+
+ - hosts: all
+   become: true
+   roles:
+     - base
+
+ - hosts: file_servers
+   become: true
+   roles:
+     - file_servers
+
+ - hosts: k3s_agents
+   become: true
+   roles:
+     - k3s_agents
+
+ - hosts: k3s_servers
+   become: true
+   roles:
+     - k3s_servers
+
+ - hosts: workstations
+   become: true
+   roles:
+     - workstations
