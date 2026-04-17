@@ -12,3 +12,4 @@
     - import_tasks: software/waveterm.yml
     - import_tasks: software/whatsie.yml
     - import_tasks: software/zoom.yml
+    - import_tasks: software/bitwarden.yml

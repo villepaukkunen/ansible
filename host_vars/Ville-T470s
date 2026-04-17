@@ -1,4 +1,5 @@
 # application selection
+bitwarden: true
 brave: true
 codium: true
 gimp: true
