@@ -10,3 +10,4 @@ teams-for-linux: true
 telegram-desktop: true
 waveterm: true
 whatsie: true
+zoom-client: true
