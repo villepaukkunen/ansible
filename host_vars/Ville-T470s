@@ -25,4 +25,4 @@ zotero: true
 gnome: true
 
 # deja-dup backup folder
-folder: 'Ville-T470s-Ubuntu'
+folder: "'Ville-T470s-Ubuntu'"
