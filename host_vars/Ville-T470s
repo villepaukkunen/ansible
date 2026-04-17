@@ -10,4 +10,4 @@ teams: true
 telegram: true
 waveterm: true
 whatsie: true
-zoom-client: true
+zoom: true
