@@ -7,7 +7,7 @@ kubectl: true
 # pycharm: true
 slack: true
 teams: true
-telegram-desktop: true
+telegram: true
 waveterm: true
 whatsie: true
 zoom-client: true
