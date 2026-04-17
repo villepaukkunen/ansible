@@ -1,6 +1,6 @@
 - name: software | pycharm | install package
   tags: packages,pycharm,snap,workstation-packages
   snap:
-    name: pycharm
+    name: pycharm-community
     state: present
   when: pycharm is defined and pycharm == true

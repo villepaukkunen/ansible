@@ -1,6 +1,0 @@
-- name: software | zoom-client | install package
-  tags: packages,zoom-client,snap,workstation-packages
-  snap:
-    name: zoom-client
-    state: present
-  when: zoom-client is defined and zoom-client == true

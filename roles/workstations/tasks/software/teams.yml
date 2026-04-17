@@ -1,5 +1,5 @@
 - name: software | teams | install package
-  tags: packages,teams-for-linux,snap,workstation-packages
+  tags: packages,teams,snap,workstation-packages
   snap:
     name: teams-for-linux
     state: present
