@@ -10,3 +10,4 @@
     - import_tasks: software/teams-for-linux.yml
     - import_tasks: software/telegram-desktop.yml
     - import_tasks: software/waveterm.yml
+    - import_tasks: software/whatsie.yml

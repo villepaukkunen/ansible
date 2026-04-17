@@ -1,0 +1,6 @@
+- name: software | whatsie | install package
+  tags: packages,whatsie,snap,workstation-packages
+  snap:
+    name: whatsie
+    state: present
+  when: whatsie is defined and whatsie == true
