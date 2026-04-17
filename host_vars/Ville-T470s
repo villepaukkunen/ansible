@@ -6,7 +6,7 @@ hugo: true
 kubectl: true
 # pycharm: true
 slack: true
-teams-for-linux: true
+teams: true
 telegram-desktop: true
 waveterm: true
 whatsie: true
