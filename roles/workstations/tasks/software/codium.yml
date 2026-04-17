@@ -1,0 +1,6 @@
+- name: software | codium | install package
+  tags: packages,codium,snap,workstation-packages
+  snap:
+    name: codium
+    state: present
+  when: codium is defined and codium == true
