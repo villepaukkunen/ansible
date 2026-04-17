@@ -2,3 +2,4 @@
     ## install software
     - import_tasks: software/brave.yml
     - import_tasks: software/codium.yml
+    - import_tasks: software/hugo.yml

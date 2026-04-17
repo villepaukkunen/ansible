@@ -1,0 +1,7 @@
+- name: software | hugo | install package
+  tags: packages,hugo,snap,workstation-packages
+  snap:
+    name: hugo
+    channel: extended/stable
+    state: present
+  when: hugo is defined and hugo == true
