@@ -1,0 +1,6 @@
+- name: software | brave | install package
+  tags: packages,brave,snap,workstation-packages
+  snap:
+    name: brave
+    state: present
+  when: brave is defined and brave == true
