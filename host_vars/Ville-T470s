@@ -20,3 +20,6 @@ waveterm: true
 whatsie: true
 zoom: true
 zotero: true
+
+# desktop environment selection
+gnome: true
