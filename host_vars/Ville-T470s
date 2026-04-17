@@ -4,7 +4,7 @@ codium: true
 gimp: true
 hugo: true
 kubectl: true
-pycharm: true
+# pycharm: true
 slack: true
 teams-for-linux: true
 telegram-desktop: true
