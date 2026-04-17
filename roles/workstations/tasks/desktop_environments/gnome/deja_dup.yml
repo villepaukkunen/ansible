@@ -38,7 +38,7 @@
   become_user: ville
   dconf:
     key: "/org/gnome/deja-dup/remote/folder"
-    value: "'Ville-T470s-Ubuntu'"
+    value: "{{ folder }}"
 
 - name: gnome | deja-dup settings | remote-uri
   tags: gnome,backup,deja-dup
