@@ -1,0 +1,6 @@
+- name: software | texstudio | install package
+  tags: packages,flatpak,texstudio,workstation-packages
+  flatpak:
+    name: org.texstudio.TeXstudio
+    state: present
+  when: texstudio is defined and texstudio == true

@@ -1,0 +1,6 @@
+- name: software | zotero | install package
+  tags: packages,flatpak,zotero,workstation-packages
+  flatpak:
+    name: org.zotero.Zotero
+    state: present
+  when: zotero is defined and zotero == true

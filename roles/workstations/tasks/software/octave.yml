@@ -1,0 +1,6 @@
+- name: software | octave | install package
+  tags: packages,flatpak,octave,workstation-packages
+  flatpak:
+    name: org.octave.Octave
+    state: present
+  when: octave is defined and octave == true
