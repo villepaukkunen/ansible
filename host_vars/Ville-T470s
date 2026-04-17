@@ -6,3 +6,4 @@ hugo: true
 kubectl: true
 pycharm-community: true
 slack: true
+teams-for-linux: true

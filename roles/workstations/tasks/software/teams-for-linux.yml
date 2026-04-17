@@ -1,0 +1,6 @@
+- name: software | teams-for-linux | install package
+  tags: packages,teams-for-linux,snap,workstation-packages
+  snap:
+    name: teams-for-linux
+    state: present
+  when: teams-for-linux is defined and teams-for-linux == true
