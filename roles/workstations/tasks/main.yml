@@ -5,3 +5,4 @@
     - import_tasks: software/gimp.yml
     - import_tasks: software/hugo.yml
     - import_tasks: software/kubectl.yml
+    - import_tasks: software/pycharm-community.yml

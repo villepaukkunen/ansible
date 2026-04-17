@@ -4,3 +4,4 @@ codium: true
 gimp: true
 hugo: true
 kubectl: true
+pycharm-community: true

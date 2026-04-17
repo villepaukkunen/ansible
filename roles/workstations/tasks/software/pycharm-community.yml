@@ -1,0 +1,6 @@
+- name: software | pycharm-community | install package
+  tags: packages,pycharm-community,snap,workstation-packages
+  snap:
+    name: pycharm-community
+    state: present
+  when: pycharm-community is defined and pycharm-community == true
