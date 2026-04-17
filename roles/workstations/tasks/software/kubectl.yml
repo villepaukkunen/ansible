@@ -1,0 +1,6 @@
+- name: software | kubectl | install package
+  tags: packages,kubectl,snap,workstation-packages
+  snap:
+    name: kubectl
+    state: present
+  when: kubectl is defined and kubectl == true

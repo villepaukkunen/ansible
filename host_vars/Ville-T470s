@@ -3,3 +3,4 @@ brave: true
 codium: true
 gimp: true
 hugo: true
+kubectl: true

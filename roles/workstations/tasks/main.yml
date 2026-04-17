@@ -4,3 +4,4 @@
     - import_tasks: software/codium.yml
     - import_tasks: software/gimp.yml
     - import_tasks: software/hugo.yml
+    - import_tasks: software/kubectl.yml
