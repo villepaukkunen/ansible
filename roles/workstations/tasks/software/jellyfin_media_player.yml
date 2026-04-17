@@ -1,6 +1,6 @@
 - name: software | jellyfin_media_player | install package
   tags: packages,flatpak,jellyfin_media_player,workstation-packages
   flatpak:
-    name: com.jellyfin_media_player.desktop
+    name: com.github.iwalton3.jellyfin-media-player
     state: present
   when: jellyfin_media_player is defined and jellyfin_media_player == true
