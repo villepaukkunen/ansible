@@ -1,0 +1,41 @@
+- name: gnome | shell settings | color-scheme
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+
+- name: gnome | shell settings | show-battery-percentage
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/desktop/interface/show-battery-percentage"
+    value: "true"
+
+- name: gnome | shell settings | dash-max-icon-size
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size"
+    value: "48"
+
+- name: gnome | shell settings | dock-fixed
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-fixed"
+    value: "false"
+
+- name: gnome | shell settings | dock-position
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
+    value: "'LEFT'"
+
+- name: gnome | shell settings | extend-height
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/extend-height"
+    value: "true"
