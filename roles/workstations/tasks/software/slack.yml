@@ -1,0 +1,6 @@
+- name: software | slack | install package
+  tags: packages,slack,snap,workstation-packages
+  snap:
+    name: slack
+    state: present
+  when: slack is defined and slack == true

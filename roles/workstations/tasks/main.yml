@@ -6,3 +6,4 @@
     - import_tasks: software/hugo.yml
     - import_tasks: software/kubectl.yml
     - import_tasks: software/pycharm-community.yml
+    - import_tasks: software/slack.yml
