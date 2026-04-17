@@ -1,0 +1,3 @@
+- block:
+    ## install software
+    - import_tasks: software/brave.yml
