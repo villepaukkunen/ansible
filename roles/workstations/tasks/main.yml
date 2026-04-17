@@ -1,4 +1,7 @@
 - block:
+    ## User configs
+    - import_tasks: users/ville.yml
+
     ## install software
     - import_tasks: software/brave.yml
     - import_tasks: software/codium.yml
