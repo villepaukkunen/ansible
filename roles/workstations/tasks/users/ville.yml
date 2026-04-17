@@ -1,0 +1,8 @@
+- name: users | ville | copy profile picture
+  tags: dotfiles,dotfiles-ville
+  copy:
+    src: users/ville/profile_picture.png
+    dest: /var/lib/AccountsService/icons/ville
+    owner: root
+    group: root
+    mode: 0644
