@@ -12,6 +12,13 @@
     key: "/org/gnome/desktop/peripherals/mouse/speed"
     value: "-0.20666666666666669"
 
+- name: gnome | peripherals | disable cursor acceleration (pointingstick)
+  tags: gnome,mouse,peripherals
+  become_user: ville
+  dconf:
+    key: "/org/gnome/desktop/peripherals/pointingstick/accel-profile"
+    value: "'flat'"
+
 - name: gnome | peripherals | disable touchpad
   tags: gnome,mouse,peripherals
   become_user: ville
