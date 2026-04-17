@@ -1,0 +1,6 @@
+- name: software | gimp | install package
+  tags: packages,gimp,snap,workstation-packages
+  snap:
+    name: gimp
+    state: present
+  when: gimp is defined and gimp == true
