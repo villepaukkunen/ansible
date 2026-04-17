@@ -6,8 +6,11 @@ gimp: true
 hugo: true
 jellyfin_media_player: true
 kubectl: true
+obsidian: true
 pycharm: true
+rustdesk: true
 slack: true
+spotify: true
 teams: true
 telegram: true
 waveterm: true

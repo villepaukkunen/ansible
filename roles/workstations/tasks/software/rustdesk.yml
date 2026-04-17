@@ -1,0 +1,6 @@
+- name: software | rustdesk | install package
+  tags: packages,flatpak,rustdesk,workstation-packages
+  flatpak:
+    name: com.rustdesk.RustDesk
+    state: present
+  when: rustdesk is defined and rustdesk == true

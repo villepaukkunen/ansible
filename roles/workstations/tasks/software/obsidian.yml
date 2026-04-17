@@ -1,0 +1,6 @@
+- name: software | obsidian | install package
+  tags: packages,flatpak,obsidian,workstation-packages
+  flatpak:
+    name: md.obsidian.Obsidian
+    state: present
+  when: obsidian is defined and obsidian == true
