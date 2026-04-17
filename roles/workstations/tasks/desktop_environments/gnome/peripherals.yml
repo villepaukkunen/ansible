@@ -1,0 +1,34 @@
+- name: gnome | peripherals | disable cursor acceleration (mouse)
+  tags: gnome,mouse,peripherals
+  become_user: ville
+  dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/accel-profile"
+    value: "'flat'"
+
+- name: gnome | peripherals | set cursor speed (mouse)
+  tags: gnome,mouse,peripherals
+  become_user: ville
+  dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/speed"
+    value: "-0.20666666666666669"
+
+- name: gnome | peripherals | disable touchpad
+  tags: gnome,mouse,peripherals
+  become_user: ville
+  dconf:
+    key: "/org/gnome/desktop/peripherals/touchpad/send-events"
+    value: "'disabled'"
+
+- name: gnome | peripherals | enable night-light
+  tags: gnome,peripherals,night-light
+  become_user: ville
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    value: "true"
+
+- name: gnome | peripherals | set power button behavior
+  tags: gnome,peripherals,power
+  become_user: ville
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/power-button-action"
+    value: "'suspend'"
