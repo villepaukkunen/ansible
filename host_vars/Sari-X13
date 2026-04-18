@@ -1,0 +1,17 @@
+# application selection
+brave: true
+gimp: true
+jellyfin_media_player: true
+obsidian: true
+slack: true
+teams: true
+telegram: true
+whatsie: true
+
+# desktop environment selection
+gnome: true
+
+# deja-dup backup configuration
+deja_dup: true
+backup_user: "sari"
+remote_folder: "'Sari-X13 Backup'"
