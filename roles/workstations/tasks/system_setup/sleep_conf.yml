@@ -1,0 +1,6 @@
+- name: system setup | sleep | HibernateDelaySec
+  tags: system,system-setup,sleep
+  lineinfile:
+      dest: /etc/systemd/sleep.conf
+      regexp: "#HibernateDelaySec="
+      line: "HibernateDelaySec=180min"
