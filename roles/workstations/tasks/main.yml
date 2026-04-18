@@ -9,8 +9,8 @@
       when:
         - gnome is defined
         - gnome == true
-        - deja-dup is defined
-        - deja-dup == true
+        - deja_dup is defined
+        - deja_dup == true
     - include_tasks: desktop_environments/gnome/peripherals.yml
       when: gnome is defined and gnome == true
     - include_tasks: desktop_environments/gnome/shell_settings.yml
