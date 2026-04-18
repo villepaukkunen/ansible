@@ -4,6 +4,7 @@
       dest: /etc/systemd/logind.conf
       regexp: "#HandleSuspendKey=suspend"
       line: "HandleSuspendKey=suspend-then-hibernate"
+  notify: restart_systemd_logind
 
 - name: system setup | logind | HandleLidSwitch
   tags: system,system-setup,logind
@@ -11,6 +12,7 @@
       dest: /etc/systemd/logind.conf
       regexp: "#HandleLidSwitch=suspend"
       line: "HandleLidSwitch=suspend-then-hibernate"
+  notify: restart_systemd_logind
 
 - name: system setup | logind | HandleLidSwitchExternalPower
   tags: system,system-setup,logind
@@ -18,6 +20,7 @@
       dest: /etc/systemd/logind.conf
       regexp: "#HandleLidSwitchExternalPower=suspend"
       line: "HandleLidSwitchExternalPower=suspend-then-hibernate"
+  notify: restart_systemd_logind
 
 - name: system setup | logind | IdleAction
   tags: system,system-setup,logind
@@ -25,3 +28,4 @@
       dest: /etc/systemd/logind.conf
       regexp: "#IdleAction=ignore"
       line: "IdleAction=suspend-then-hibernate"
+  notify: restart_systemd_logind

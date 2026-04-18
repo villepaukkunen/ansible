@@ -1,0 +1,5 @@
+- name: restart_systemd_logind
+  tags: system,system-setup,logind
+  service:
+    name: systemd-logind.service
+    state: restarted
