@@ -24,5 +24,7 @@ zotero: true
 # desktop environment selection
 gnome: true
 
-# deja-dup backup folder
+# deja-dup backup configuration
+deja_dup: true
+backup_user: "ville"
 folder: "'Ville-T470s-Ubuntu'"
