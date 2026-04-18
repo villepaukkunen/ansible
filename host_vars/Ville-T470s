@@ -1,5 +1,5 @@
 # application selection
-bitwarden: true
+bitwarden_flatpak: true
 brave: true
 codium: true
 gimp: true
@@ -12,7 +12,7 @@ pycharm: true
 rustdesk: true
 signal: true
 slack: true
-spotify: true
+spotify_flatpak: true
 teams: true
 telegram: true
 texstudio: true
