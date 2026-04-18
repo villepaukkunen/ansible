@@ -6,7 +6,11 @@
     - include_tasks: desktop_environments/gnome/appearance.yml
       when: gnome is defined and gnome == true
     - include_tasks: desktop_environments/gnome/deja_dup.yml
-      when: gnome is defined and gnome == true
+      when:
+        - gnome is defined
+        - gnome == true
+        - deja-dup is defined
+        - deja-dup == true
     - include_tasks: desktop_environments/gnome/peripherals.yml
       when: gnome is defined and gnome == true
     - include_tasks: desktop_environments/gnome/shell_settings.yml
