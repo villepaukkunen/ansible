@@ -38,7 +38,7 @@
   become_user: "{{ backup_user }}"
   dconf:
     key: "/org/gnome/deja-dup/remote/folder"
-    value: "{{ folder }}"
+    value: "{{ remote_folder }}"
 
 - name: gnome | deja-dup settings | remote-uri
   tags: gnome,backup,deja-dup

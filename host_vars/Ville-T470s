@@ -27,4 +27,4 @@ gnome: true
 # deja-dup backup configuration
 deja_dup: true
 backup_user: "ville"
-folder: "'Ville-T470s-Ubuntu'"
+remote_folder: "'Ville-T470s-Ubuntu'"
