@@ -1,3 +1,13 @@
+- name: users | ville | copy personal config files
+  tags: dotfiles,dotfiles-ville
+  copy:
+    src: users/ville/{{ item.src }}
+    dest: /home/ville/{{ item.dest }}
+    owner: ville
+    group: ville
+  with_items:
+    - { src: 'waveterm-settings.json', dest: 'snap/waveterm/current/.config/waveterm/settings.json' }
+
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
   copy:
