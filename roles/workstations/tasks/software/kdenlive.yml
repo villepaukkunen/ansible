@@ -1,0 +1,6 @@
+- name: software | kdenlive | install package
+  tags: packages,snap,kdenlive,workstation-packages
+  snap:
+    name: kdenlive
+    state: present
+  when: kdenlive is defined and kdenlive == true
