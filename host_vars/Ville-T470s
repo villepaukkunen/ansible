@@ -5,6 +5,7 @@ codium: true
 gimp: true
 hugo: true
 jellyfin_media_player: true
+kdenlive: false
 kubectl: true
 obsidian: true
 octave: true
