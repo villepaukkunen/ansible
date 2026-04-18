@@ -12,6 +12,9 @@
     - include_tasks: desktop_environments/gnome/shell_settings.yml
       when: gnome is defined and gnome == true
 
+    ## system setup
+    - import_tasks: system_setup/sleep_conf.yml
+
     ## install software
     - import_tasks: software/brave.yml
     - import_tasks: software/codium.yml
