@@ -1,0 +1,3 @@
+- block:
+    ## system setup
+    - import_tasks: system_setup/clock.yml
