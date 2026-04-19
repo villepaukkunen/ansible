@@ -1,12 +1,12 @@
 # application selection
-bitwarden_snap: true
+bitwarden: "snap"
 brave: true
 gimp: true
 jellyfin_media_player: true
 kdenlive: true
 obsidian: true
 slack: true
-spotify_snap: true
+spotify: "snap"
 teams: true
 telegram: true
 whatsie: true
