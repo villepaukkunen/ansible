@@ -1,13 +1,13 @@
-- name: software | spotify | install package
+- name: software | spotify | install flatpak
   tags: packages,flatpak,spotify,workstation-packages
   flatpak:
     name: com.spotify.Client
     state: present
-  when: spotify_flatpak is defined and spotify_flatpak == true
+  when: spotify is defined and spotify == "flatpak"
 
-- name: software | spotify | install package
+- name: software | spotify | install snap
   tags: packages,snap,spotify,workstation-packages
   snap:
     name: spotify
     state: present
-  when: spotify_snap is defined and spotify_snap == true
+  when: spotify is defined and spotify == "snap"
