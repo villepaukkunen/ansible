@@ -1,3 +1,5 @@
+main_user: "sari"
+
 # application selection
 bitwarden: "snap"
 brave: true
@@ -16,5 +18,4 @@ gnome: true
 
 # deja-dup backup configuration
 deja_dup: true
-backup_user: "sari"
 remote_folder: "'Sari-X13 Backup'"

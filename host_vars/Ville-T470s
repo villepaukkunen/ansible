@@ -1,3 +1,5 @@
+main_user: "ville"
+
 # application selection
 bitwarden: "flatpak"
 brave: true
@@ -27,5 +29,4 @@ gnome: true
 
 # deja-dup backup configuration
 deja_dup: true
-backup_user: "ville"
 remote_folder: "'Ville-T470s-Ubuntu'"
