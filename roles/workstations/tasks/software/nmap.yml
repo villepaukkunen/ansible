@@ -2,4 +2,4 @@
   tags: packages,nmap,workstation-packages
   package:
     name: nmap
-    state: latest
+    state: present

@@ -2,4 +2,4 @@
   tags: packages,solaar,workstation-packages
   package:
     name: solaar
-    state: latest
+    state: present

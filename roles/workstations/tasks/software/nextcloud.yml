@@ -2,5 +2,5 @@
   tags: packages,nextcloud,workstation-packages
   package:
     name: nautilus-nextcloud
-    state: latest
+    state: present
   when: gnome is defined and gnome == true
