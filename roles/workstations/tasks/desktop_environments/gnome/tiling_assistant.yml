@@ -1,0 +1,20 @@
+- name: gnome | tiling-assistant | activate-layout4
+  tags: gnome,gnome-shell,tiling-assistant
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/tiling-assistant/activate-layout4"
+    value: "['<Control><Alt>2']"
+
+- name: gnome | tiling-assistant | activate-layout5
+  tags: gnome,gnome-shell,tiling-assistant
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/tiling-assistant/activate-layout5"
+    value: "['<Control><Alt>3']"
+
+- name: gnome | tiling-assistant | activate-layout6
+  tags: gnome,gnome-shell,tiling-assistant
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/tiling-assistant/activate-layout6"
+    value: "['<Control><Alt>1']"
