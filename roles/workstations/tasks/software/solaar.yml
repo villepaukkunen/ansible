@@ -1,0 +1,5 @@
+- name: software | solaar | install package
+  tags: packages,solaar,workstation-packages
+  package:
+    name: solaar
+    state: latest

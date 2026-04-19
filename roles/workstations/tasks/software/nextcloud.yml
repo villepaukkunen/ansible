@@ -1,0 +1,6 @@
+- name: software | nextcloud | install package
+  tags: packages,nextcloud,workstation-packages
+  package:
+    name: nautilus-nextcloud
+    state: latest
+  when: gnome is defined and gnome == true
