@@ -31,6 +31,7 @@
     - import_tasks: software/kdenlive.yml
     - import_tasks: software/kubectl.yml
     - import_tasks: software/nextcloud.yml
+    - import_tasks: software/nmap.yml
     - import_tasks: software/obsidian.yml
     - import_tasks: software/octave.yml
     - import_tasks: software/pycharm.yml

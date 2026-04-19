@@ -1,0 +1,5 @@
+- name: software | nmap | install package
+  tags: packages,nmap,workstation-packages
+  package:
+    name: nmap
+    state: latest
