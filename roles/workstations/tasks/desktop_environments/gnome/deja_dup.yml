@@ -1,48 +1,48 @@
 - name: gnome | deja-dup settings | backend
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/backend"
     value: "'remote'"
 
 - name: gnome | deja-dup settings | delete-after
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/delete-after"
     value: "90"
 
 - name: gnome | deja-dup settings | exclude-list
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/exclude-list"
     value: "['$TRASH', '$DOWNLOAD']"
 
 - name: gnome | deja-dup settings | periodic
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/periodic"
     value: "true"
 
 - name: gnome | deja-dup settings | periodic-period
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/periodic-period"
     value: "1"
 
 - name: gnome | deja-dup settings | remote-folder
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/remote/folder"
     value: "{{ remote_folder }}"
 
 - name: gnome | deja-dup settings | remote-uri
   tags: gnome,backup,deja-dup
-  become_user: "{{ backup_user }}"
+  become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/remote/uri"
-    value: "'sftp://{{ backup_user }}@m73-1.mandariini.uk/srv/sftp/{{ backup_user }}'"
+    value: "'sftp://{{ main_user }}@m73-1.mandariini.uk/srv/sftp/{{ main_user }}'"
