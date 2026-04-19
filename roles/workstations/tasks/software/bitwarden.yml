@@ -3,11 +3,11 @@
   flatpak:
     name: com.bitwarden.desktop
     state: present
-  when: bitwarden_flatpak is defined and bitwarden_flatpak == true
+  when: bitwarden is defined and bitwarden == 'flatpak'
 
 - name: software | bitwarden | install package
   tags: packages,snap,bitwarden,workstation-packages
   snap:
     name: bitwarden
     state: present
-  when: bitwarden_snap is defined and bitwarden_snap == true
+  when: bitwarden is defined and bitwarden == 'snap'
