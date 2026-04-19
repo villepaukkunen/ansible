@@ -19,6 +19,7 @@
       when: gnome is defined and gnome == true
 
     ## system setup
+    - import_tasks: system_setup/flatpak.yml
     - import_tasks: system_setup/logind_conf.yml
     - import_tasks: system_setup/sleep_conf.yml
 

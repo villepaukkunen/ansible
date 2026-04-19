@@ -1,0 +1,16 @@
+- name: system setup | flatpak | add flatpak support
+  package:
+    name: flatpak
+    state: present
+
+- name: system setup | flatpak | install gnome flatpak plugin
+  package:
+    name: gnome-software-plugin-flatpak
+    state: present
+
+- name: system setup | flatpak | add flathub remote
+  tags: packages,flatpak,workstation-packages
+  flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    state: present
