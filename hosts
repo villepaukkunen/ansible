@@ -1,14 +1,14 @@
 [file_servers]
-m73-1.mandariini.uk
+m73-server-1
 
 [k3s_agents]
-acer.mandariini.uk
-m600-2.mandariini.uk
+acer-server
+m600-server-2
 
 [k3s_servers]
-m73-2.mandariini.uk
-m73-3.mandariini.uk
-m720q-1.mandariini.uk
+m73-server-2
+m73-server-3
+m720q-server-1
 
 [workstations]
 Sari-X13
