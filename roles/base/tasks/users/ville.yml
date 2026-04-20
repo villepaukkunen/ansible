@@ -5,4 +5,5 @@
     key: "{{ item }}"
   with_file:
     - users/ville/id_ed25519.pub
+    - users/ville/SSH-Key.pub
   when: ssh is defined and ssh == true
