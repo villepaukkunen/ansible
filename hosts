@@ -1,14 +1,10 @@
-[file_servers]
-m73-server-1
-
-[k3s_agents]
+[servers]
 acer-server
 m600-server-2
-
-[k3s_servers]
+m720q-server-1
+m73-server-1
 m73-server-2
 m73-server-3
-m720q-server-1
 
 [workstations]
 Sari-X13
