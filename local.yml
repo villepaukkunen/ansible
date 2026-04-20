@@ -7,22 +7,12 @@
    roles:
      - base
 
- - hosts: file_servers
+ - hosts: server
    become: true
    roles:
-     - file_servers
+     - server
 
- - hosts: k3s_agents
+ - hosts: workstation
    become: true
    roles:
-     - k3s_agents
-
- - hosts: k3s_servers
-   become: true
-   roles:
-     - k3s_servers
-
- - hosts: workstations
-   become: true
-   roles:
-     - workstations
+     - workstation
