@@ -1,0 +1,6 @@
+- name: software | gnome-tweaks | install package
+  tags: packages,gnome-tweaks,workstation-packages
+  package:
+    name: gnome-tweaks
+    state: present
+  when: gnome is defined and gnome == true
