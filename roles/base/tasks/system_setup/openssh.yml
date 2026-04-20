@@ -19,4 +19,5 @@
     dest: /etc/ssh/sshd_config.d/00-override.conf
     owner: root
     group: root
+    mode: 0600
   notify: restart_sshd
