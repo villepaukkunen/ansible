@@ -1,3 +1,5 @@
 - block:
     ## system setup
     - import_tasks: system_setup/clock.yml
+    - import_tasks: system_setup/openssh.yml
+      when: ssh is defined and ssh == true

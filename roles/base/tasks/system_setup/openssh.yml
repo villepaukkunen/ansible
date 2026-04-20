@@ -1,0 +1,22 @@
+- name: system setup | openssh | install daemon package
+  tags: openssh,ssh,system,settings
+  package:
+    name: "{{ openssh_package }}"
+    state: present
+  notify: restart_sshd
+
+- name: system setup | openssh | enable daemon
+  tags: openssh,ssh,system,settings
+  service:
+    name: "{{ openssh_service }}"
+    enabled: yes
+    state: started
+
+- name: system setup | openssh | copy sshd_config override file
+  tags: openssh,ssh,system,settings
+  copy:
+    src: openssh_00-override.conf
+    dest: /etc/ssh/sshd_config.d/00-override.conf
+    owner: root
+    group: root
+  notify: restart_sshd
