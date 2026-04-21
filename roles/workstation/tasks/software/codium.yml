@@ -2,4 +2,4 @@
   tags: packages,codium,snap,workstation-packages
   snap:
     name: codium
-    state: present
+    channel: latest/stable
