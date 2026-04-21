@@ -3,6 +3,7 @@ main_user: "ville"
 # application selection
 bitwarden: "flatpak"
 brave: true
+codium: true
 gimp: true
 hugo: true
 jellyfin_media_player: true
