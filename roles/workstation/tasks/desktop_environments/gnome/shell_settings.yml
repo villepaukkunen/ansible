@@ -12,6 +12,16 @@
     key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: "true"
 
+- name: gnome | shell settings | favorite-apps
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/favorite-apps"
+    value: >-
+      ['brave_brave.desktop', 'thunderbird_thunderbird.desktop', 'waveterm_waveterm.desktop',
+      'codium_codium.desktop', 'com.spotify.Client.desktop', 'org.gnome.Nautilus.desktop',
+      'org.gnome.Software.desktop', 'org.gnome.Yelp.desktop']
+
 - name: gnome | shell settings | dash-max-icon-size
   tags: gnome,gnome-shell
   become_user: ville
