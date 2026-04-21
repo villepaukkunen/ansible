@@ -2,4 +2,5 @@
   tags: packages,codium,snap,workstation-packages
   snap:
     name: codium
-    channel: latest/stable
+    state: present
+  when: codium is defined and codium == true
