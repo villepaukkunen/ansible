@@ -1,3 +1,7 @@
+# Load distro-specific variables
+- include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
+
 - block:
     ## User configs
     - import_tasks: users/ville.yml
@@ -30,6 +34,7 @@
     - import_tasks: software/gnome_tweaks.yml
     - import_tasks: software/hugo.yml
     - import_tasks: software/jellyfin_media_player.yml
+    - import_tasks: software/k9s.yml
     - import_tasks: software/kdenlive.yml
     - import_tasks: software/kubectl.yml
     - import_tasks: software/nextcloud.yml
