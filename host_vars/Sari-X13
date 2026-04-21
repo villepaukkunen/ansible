@@ -1,3 +1,4 @@
+ssh: true
 main_user: "sari"
 
 # application selection
