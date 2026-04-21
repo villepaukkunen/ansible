@@ -32,6 +32,7 @@
     - import_tasks: software/codium.yml
     - import_tasks: software/gimp.yml
     - import_tasks: software/gnome_tweaks.yml
+    - import_tasks: software/gnome-shell-extension-manager.yml
     - import_tasks: software/hugo.yml
     - import_tasks: software/jellyfin_media_player.yml
     - import_tasks: software/k9s.yml

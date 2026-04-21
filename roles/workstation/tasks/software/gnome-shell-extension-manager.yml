@@ -1,0 +1,5 @@
+- name: software | gnome-shell-extension-manager | install package
+  tags: packages,gnome-shell-extension-manager,workstation-packages
+  package:
+    name: gnome-shell-extension-manager
+    state: present
