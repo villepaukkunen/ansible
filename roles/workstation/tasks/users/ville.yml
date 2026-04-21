@@ -7,7 +7,15 @@
     group: ville
   with_items:
     - { src: 'layouts.json', dest: '.config/tiling-assistant/layouts.json' }
-    - { src: 'waveterm-settings.json', dest: 'snap/waveterm/current/.config/waveterm/settings.json' }
+
+- name: users | ville | copy waveterm config files
+  tags: dotfiles,dotfiles-ville
+  copy:
+    src: users/ville/waveterm-settings.json
+    dest: /home/ville/snap/waveterm/current/.config/waveterm/settings.json
+    owner: ville
+    group: ville
+  when: waveterm is defined and waveterm == true
 
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
