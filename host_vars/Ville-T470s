@@ -7,6 +7,7 @@ codium: true
 gimp: true
 hugo: true
 jellyfin_media_player: true
+k9s: true
 kdenlive: false
 kubectl: true
 obsidian: true
