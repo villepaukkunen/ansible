@@ -20,7 +20,6 @@ spotify: "flatpak"
 teams: true
 telegram: true
 texstudio: true
-waveterm: true
 whatsie: true
 zoom: true
 zotero: true
