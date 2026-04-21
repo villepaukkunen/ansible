@@ -1,0 +1,8 @@
+- name: software | k9s | install package
+  tags: packages,k9s,deb,workstation-packages
+  apt:
+    deb: https://github.com/derailed/k9s/releases/download/{{ k9s_version }}/k9s_linux_amd64.deb
+  when:
+    - ansible_distribution = "Ubuntu"
+    - k9s is defined
+    - k9s == true
