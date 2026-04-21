@@ -3,4 +3,3 @@
   snap:
     name: codium
     state: present
-  when: codium is defined and codium == true
