@@ -12,6 +12,7 @@ slack: true
 spotify: "snap"
 teams: true
 telegram: true
+waveterm: true
 whatsie: true
 
 # desktop environment selection
