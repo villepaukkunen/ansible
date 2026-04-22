@@ -2,5 +2,6 @@
   tags: packages,codium,snap,workstation-packages
   snap:
     name: codium
+    classic: true
     state: present
   when: codium is defined and codium == true

@@ -2,5 +2,6 @@
   tags: packages,waveterm,snap,workstation-packages
   snap:
     name: waveterm
+    classic: true
     state: present
   when: waveterm is defined and waveterm == true
