@@ -7,7 +7,7 @@
     group: ville
   with_items:
     - { src: 'layouts.json', dest: '.config/tiling-assistant/layouts.json' }
-    - { src: 'waveterm', dest: 'snap/waveterm/current/.config' }
+    - { src: 'waveterm-settings.json', dest: 'snap/waveterm/204/.config/waveterm/settings.json' }
 
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
