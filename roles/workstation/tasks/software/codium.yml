@@ -4,4 +4,3 @@
     name: codium
     classic: true
     state: present
-  when: codium is defined and codium == true
