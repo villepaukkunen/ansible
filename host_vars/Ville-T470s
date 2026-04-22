@@ -15,7 +15,7 @@ pycharm: true
 rustdesk: true
 signal: true
 slack: true
-spotify: "flatpak"
+spotify: "snap"
 teams: true
 telegram: true
 texstudio: true
