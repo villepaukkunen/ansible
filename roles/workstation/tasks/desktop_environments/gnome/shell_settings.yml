@@ -19,7 +19,7 @@
     key: "/org/gnome/shell/favorite-apps"
     value: >-
       ['brave_brave.desktop', 'thunderbird_thunderbird.desktop', 'waveterm_waveterm.desktop',
-      'codium_codium.desktop', 'com.spotify.Client.desktop', 'org.gnome.Nautilus.desktop',
+      'codium_codium.desktop', 'spotify_spotify.desktop', 'org.gnome.Nautilus.desktop',
       'org.gnome.Software.desktop', 'org.gnome.Yelp.desktop']
 
 - name: gnome | shell settings | dash-max-icon-size
