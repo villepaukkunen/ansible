@@ -7,8 +7,18 @@
     group: ville
   with_items:
     - { src: 'layouts.json', dest: '.config/tiling-assistant/layouts.json' }
-    - { src: 'mimeapps.list', dest: '.config/mimeapps.list' }
     - { src: 'waveterm', dest: 'snap' }
+
+- name: users | ville | set brave as default browser
+  tags: dotfiles,dotfiles-ville
+  become_user: ville
+  xdg_mime:
+    mime_types:
+      - text/html
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+      - application/xhtml+xml
+    handler: brave_brave.desktop
 
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
