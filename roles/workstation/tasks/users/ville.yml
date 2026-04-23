@@ -12,14 +12,13 @@
 - name: users | ville | set brave as default browser
   tags: dotfiles,dotfiles-ville
   become_user: ville
-  community.general.xdg_mime:
-    mime_types:
+  community.general.gio_mime:
+    mime_type:
       - text/html
       - x-scheme-handler/http
       - x-scheme-handler/https
       - application/xhtml+xml
     handler: brave_brave.desktop
-  register: result
 
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
