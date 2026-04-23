@@ -19,7 +19,7 @@
       - x-scheme-handler/https
       - application/xhtml+xml
     handler: brave_brave.desktop
-    register: result
+  register: result
 
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
