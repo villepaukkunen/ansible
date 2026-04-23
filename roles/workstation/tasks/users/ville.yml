@@ -13,11 +13,7 @@
   tags: dotfiles,dotfiles-ville
   become_user: ville
   community.general.gio_mime:
-    mime_type:
-      - text/html
-      - x-scheme-handler/http
-      - x-scheme-handler/https
-      - application/xhtml+xml
+    mime_type: x-scheme-handler/https
     handler: brave_brave.desktop
   register: result
 
