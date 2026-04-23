@@ -63,3 +63,10 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-dock/show-trash"
     value: "false"
+
+- name: gnome | shell settings | startup-sound
+  tags: gnome,gnome-shell
+  become_user: ville
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/startup-sound"
+    value: "'warty-startup'"
