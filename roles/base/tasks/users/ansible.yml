@@ -12,3 +12,22 @@
     owner: root
     group: root
     mode: 0440
+
+- name: users | ansible | create .ssh directory
+  tags: dotfiles,ansible,ssh,users
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: 0700
+  with_items:
+    - { dir: '/home/ansible/.ssh' }
+
+- name: users | ansible | add public key
+  tags: dotfiles,ansible,ssh,ssh-keys,users
+  authorized_key:
+    user: ansible
+    key: "{{ item }}"
+  with_file:
+    - users/ansible/ansible.pub
