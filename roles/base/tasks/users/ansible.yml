@@ -23,6 +23,7 @@
     mode: 0700
   with_items:
     - { dir: '/home/ansible/.ssh' }
+  when: ssh is defined and ssh == true
 
 - name: users | ansible | add public key
   tags: dotfiles,ansible,ssh,ssh-keys,users
@@ -31,3 +32,4 @@
     key: "{{ item }}"
   with_file:
     - users/ansible/ansible.pub
+  when: ssh is defined and ssh == true
