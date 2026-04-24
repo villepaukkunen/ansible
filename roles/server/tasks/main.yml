@@ -1,0 +1,4 @@
+- block:
+    ## system setup
+    - import_tasks: system_setup/k3s.yml
+      when: k3s is defined
