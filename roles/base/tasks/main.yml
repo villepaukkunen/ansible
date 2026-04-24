@@ -5,6 +5,7 @@
 - block:
     ## User configs
     - import_tasks: users/ville.yml
+    - import_tasks: users/ansible.yml
 
     ## system setup
     - import_tasks: system_setup/clock.yml
