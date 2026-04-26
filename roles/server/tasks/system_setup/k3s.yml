@@ -1,0 +1,28 @@
+- name: system setup | k3s | copy k3s-server config files
+  tags: system,system-setup,k3s,k3s-server
+  copy:
+    src: k3s/{{ item.src }}
+    dest: /{{ item.dest }}
+    owner: root
+    group: root
+  with_items:
+    - { src: 'k3s_server/etc', dest: 'etc' }
+    - { src: 'k3s_server/var', dest: 'var' }
+    - { src: 'kubelet.conf', dest: 'etc/rancher/k3s/kubelet.conf' }
+    - { src: '90-kubelet.conf', dest: 'etc/sysctl.d/90-kubelet.conf' }
+    - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
+  when: k3s == server
+
+- name: system setup | k3s | copy k3s-agent config files
+  tags: system,system-setup,k3s,k3s-agent
+  copy:
+    src: k3s/{{ item.src }}
+    dest: /{{ item.dest }}
+    owner: root
+    group: root
+  with_items:
+    - { src: 'k3s_agent/etc', dest: 'etc' }
+    - { src: 'kubelet.conf', dest: 'etc/rancher/k3s/kubelet.conf' }
+    - { src: '90-kubelet.conf', dest: 'etc/sysctl.d/90-kubelet.conf' }
+    - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
+  when: k3s == agent
