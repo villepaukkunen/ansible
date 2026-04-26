@@ -1,0 +1,23 @@
+- name: system setup | unattended upgrades | enable regular updates
+  tags: system,system-setup,unattended-upgrades
+  lineinfile:
+      dest: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: '//      "${distro_id}:${distro_codename}-updates";'
+      line: '        "${distro_id}:${distro_codename}-updates";'
+  notify: restart_unattended_upgrades
+
+- name: system setup | unattended upgrades | remove unused dependencies
+  tags: system,system-setup,unattended-upgrades
+  lineinfile:
+      dest: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: '//Unattended-Upgrade::Remove-Unused-Dependencies "false";'
+      line: 'Unattended-Upgrade::Remove-Unused-Dependencies "true";'
+  notify: restart_unattended_upgrades
+
+- name: system setup | unattended upgrades | enable on battery power
+  tags: system,system-setup,unattended-upgrades
+  lineinfile:
+      dest: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: '// Unattended-Upgrade::OnlyOnACPower "true";'
+      line: 'Unattended-Upgrade::OnlyOnACPower "false";'
+  notify: restart_unattended_upgrades
