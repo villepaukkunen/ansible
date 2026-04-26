@@ -1,2 +1,2 @@
 ssh: true
-k3s: agent
+k3s: "agent"
