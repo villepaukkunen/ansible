@@ -13,6 +13,18 @@
     - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
   when: k3s == "server"
 
+- name: system setup | k3s | create log directory
+  tags: system,system-setup,k3s,k3s-server
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+  with_items:
+    - { dir: '/var/lib/rancher/k3s/server/logs' }
+  when: k3s == "server"
+
 - name: system setup | k3s | copy k3s-agent config files
   tags: system,system-setup,k3s,k3s-agent
   copy:
@@ -26,14 +38,3 @@
     - { src: '90-kubelet.conf', dest: 'etc/sysctl.d/90-kubelet.conf' }
     - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
   when: k3s == "agent"
-
-- name: system setup | k3s | create log directory
-  tags: system,system-setup,k3s,audit
-  file:
-    path: "{{ item.dir }}"
-    state: directory
-    owner: root
-    group: root
-    mode: 0700
-  with_items:
-    - { dir: '/var/lib/rancher/k3s/server/logs' }
