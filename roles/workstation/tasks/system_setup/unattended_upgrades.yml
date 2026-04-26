@@ -10,7 +10,7 @@
   tags: system,system-setup,unattended-upgrades
   lineinfile:
       dest: /etc/apt/apt.conf.d/50unattended-upgrades
-      regexp: '//Unattended-Upgrade::Remove-Unused-Dependencies "false";'
+      regexp: '\/\/Unattended-Upgrade::Remove-Unused-Dependencies "false";'
       line: 'Unattended-Upgrade::Remove-Unused-Dependencies "true";'
   notify: restart_unattended_upgrades
 
@@ -18,6 +18,6 @@
   tags: system,system-setup,unattended-upgrades
   lineinfile:
       dest: /etc/apt/apt.conf.d/50unattended-upgrades
-      regexp: '// Unattended-Upgrade::OnlyOnACPower "true";'
+      regexp: '\/\/ Unattended-Upgrade::OnlyOnACPower "true";'
       line: 'Unattended-Upgrade::OnlyOnACPower "false";'
   notify: restart_unattended_upgrades
