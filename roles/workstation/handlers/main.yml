@@ -3,3 +3,9 @@
   service:
     name: systemd-logind.service
     state: restarted
+
+- name: restart_unattended_upgrades
+  tags: system,system-setup,unattended-upgrades
+  service:
+    name: unattended-upgrades.service
+    state: restarted
