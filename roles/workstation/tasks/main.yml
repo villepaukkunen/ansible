@@ -26,6 +26,8 @@
     - import_tasks: system_setup/flatpak.yml
     - import_tasks: system_setup/logind_conf.yml
     - import_tasks: system_setup/sleep_conf.yml
+    - import_tasks: system_setup/unattended_upgrades.yml
+      when: unattended_upgrades is defined and unattended_upgrades == true
 
     ## install software
     - import_tasks: software/brave.yml
