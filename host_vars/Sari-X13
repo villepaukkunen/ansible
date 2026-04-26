@@ -1,4 +1,5 @@
 ssh: true
+unattended_upgrades: true
 main_user: "sari"
 
 # application selection
