@@ -22,7 +22,7 @@
       line: 'Unattended-Upgrade::OnlyOnACPower "false";'
   notify: restart_unattended_upgrades
 
-- name: system setup | unattended upgrades | copy personal config files
+- name: system setup | unattended upgrades | copy service files
   tags: system,system-setup,unattended-upgrades
   copy:
     src: unattended-upgrades/{{ item.src }}
