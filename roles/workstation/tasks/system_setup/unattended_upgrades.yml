@@ -36,3 +36,18 @@
   notify:
     - daemon_reload
     - restart_unattended_upgrades
+
+- name: system setup | unattended upgrades | generate timers from templates
+  tags: system,system-setup,unattended-upgrades
+  template:
+    src: unattended-upgrades/{{ item.src }}
+    dest: /etc/systemd/system/{{ item.dest }}
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { src: 'apt-daily-upgrade_timer.j2', dest: 'apt-daily-upgrade.timer' }
+    - { src: 'apt-daily_timer.j2', dest: 'apt-daily.timer' }
+  notify:
+    - daemon_reload
+    - restart_unattended_upgrades
