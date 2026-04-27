@@ -1,0 +1,10 @@
+- name: system setup | grub | GRUB_CMDLINE_LINUX_DEFAULT
+  tags: system,system-setup,grub
+  lineinfile:
+      dest: /etc/default/grub
+      regexp: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+      line: >-
+        GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID={{ resume_UUID }}
+        resume_offset={{ resume_offset }}"
+  when: resume_UUID is defined and resume_offset is defined
+  notify: update_grub
