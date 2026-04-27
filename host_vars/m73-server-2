@@ -1,2 +1,5 @@
 ssh: true
 k3s: "server"
+
+# unattended upgrades
+upgrade_time: "4:00"
