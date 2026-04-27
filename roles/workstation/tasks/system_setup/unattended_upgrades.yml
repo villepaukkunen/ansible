@@ -21,3 +21,18 @@
       regexp: '\/\/ Unattended-Upgrade::OnlyOnACPower "true";'
       line: 'Unattended-Upgrade::OnlyOnACPower "false";'
   notify: restart_unattended_upgrades
+
+- name: system setup | unattended upgrades | copy personal config files
+  tags: system,system-setup,unattended-upgrades
+  copy:
+    src: unattended-upgrades/{{ item.src }}
+    dest: /etc/systemd/system/{{ item.dest }}
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { src: 'apt-daily-upgrade.service', dest: 'apt-daily-upgrade.service' }
+    - { src: 'apt-daily.service', dest: 'apt-daily.service' }
+  notify:
+    - daemon_reload
+    - restart_unattended_upgrades
