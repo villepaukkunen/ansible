@@ -2,6 +2,10 @@ ssh: true
 unattended_upgrades: true
 main_user: "sari"
 
+# grub
+resume_UUID: "24ec338b-e2d9-480e-a8d2-58ed5996db19"
+resume_offset: "3106816"
+
 # application selection
 bitwarden: "snap"
 brave: true
