@@ -1,3 +1,8 @@
+- name: daemon_reload
+  tags: system,system-setup,daemon-reload
+  service:
+    daemon_reload: true
+
 - name: restart_unattended_upgrades
   tags: system,system-setup,unattended-upgrades
   service:
