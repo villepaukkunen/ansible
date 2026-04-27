@@ -4,7 +4,7 @@ After=apt-daily.timer
 
 [Timer]
 OnCalendar=*-*-* {{ upgrade_time }}
-RandomizedDelaySec={{ randomized_delay | default('') }}
+RandomizedDelaySec={{ randomized_delay | default(0) }}
 Persistent=true
 
 [Install]
