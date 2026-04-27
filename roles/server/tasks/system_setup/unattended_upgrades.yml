@@ -30,6 +30,7 @@
     owner: root
     group: root
     mode: 0644
+  when: upgrade_time is defined
   notify:
     - daemon_reload
     - restart_unattended_upgrades
