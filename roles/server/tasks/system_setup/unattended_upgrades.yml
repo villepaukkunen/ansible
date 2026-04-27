@@ -21,3 +21,13 @@
       regexp: '\/\/Unattended-Upgrade::Automatic-Reboot "false";'
       line: 'Unattended-Upgrade::Automatic-Reboot "true";'
   notify: restart_unattended_upgrades
+
+- name: system setup | unattended upgrades | generate apt-daily-upgrade.timer from template
+  tags: system,system-setup,unattended-upgrades
+  template:
+    src: apt-daily-upgrade_timer.j2
+    dest: /etc/systemd/system/apt-daily-upgrade.timer
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_unattended_upgrades
