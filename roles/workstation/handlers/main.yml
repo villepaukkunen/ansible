@@ -3,6 +3,11 @@
   service:
     daemon_reload: true
 
+- name: mount_all
+  tags: system,system-setup,mount-all
+  command:
+    cmd: "mount -a"
+
 - name: restart_systemd_logind
   tags: system,system-setup,logind
   service:
