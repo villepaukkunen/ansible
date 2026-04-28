@@ -28,7 +28,7 @@
     - import_tasks: system_setup/grub.yml
     - import_tasks: system_setup/logind_conf.yml
     - import_tasks: system_setup/sleep_conf.yml
-    - import_tasks: system_setup/unattended_upgrades.yml
+    - include_tasks: system_setup/unattended_upgrades.yml
       when: unattended_upgrades is defined and unattended_upgrades == true
 
     ## install software
