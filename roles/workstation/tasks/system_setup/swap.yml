@@ -1,0 +1,50 @@
+- name: system setup | swap | Get current swap file size
+  tags: system,system-setup,swap
+  ansible.builtin.stat:
+    path: "/swap.img"
+  register: current_swap_file
+
+- name: system setup | swap | Calculate current size in MB
+  tags: system,system-setup,swap
+  ansible.builtin.stat:
+    current_size_mb: "{{ (current_swap_file.stat.size / 1048576) | int }}"
+  when: current_swap_file.stat.exists
+
+- name: system setup | swap | Skip if already at desired size
+  tags: system,system-setup,swap
+  ansible.builtin.debug:
+    msg: "Swap file already at {{ current_size_mb }} MB, requested {{ swap_size_mb }} MB"
+  when:
+    - current_swap_file.stat.exists
+    - current_size_mb | int >= swap_size_mb | int
+
+- name: system setup | swap | Disable current swap file
+  tags: system,system-setup,swap
+  ansible.builtin.command:
+    cmd: "swapoff /swap.img"
+  when: current_size_mb | int < swap_size_mb | int
+
+- name: system setup | swap | Resize swap file
+  tags: system,system-setup,swap
+  ansible.builtin.command:
+    cmd: "dd if=/dev/zero of=/swap.img bs=1M count={{ swap_size_mb }}"
+  when: current_size_mb | int < swap_size_mb | int
+
+- name: system setup | swap | Set permissions on resized swap file
+  tags: system,system-setup,swap
+  ansible.builtin.file:
+    path: "/swap.img"
+    mode: '0600'
+  when: current_size_mb | int < swap_size_mb | int
+
+- name: system setup | swap | Reformat as swap
+  tags: system,system-setup,swap
+  ansible.builtin.command:
+    cmd: "mkswap /swap.img"
+  when: current_size_mb | int < swap_size_mb | int
+
+- name: system setup | swap | Re-enable swap
+  tags: system,system-setup,swap
+  ansible.builtin.command:
+    cmd: "swapon /swap.img"
+  when: current_size_mb | int < swap_size_mb | int
