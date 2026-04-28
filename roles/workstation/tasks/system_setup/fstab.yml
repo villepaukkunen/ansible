@@ -1,12 +1,12 @@
 - name: system setup | fstab | mount nextcloud directories
   tags: system,system-setup,fstab
-  blockinfile:
-    path: /etc/fstab
-    insertafter: ""
-    block: |
-      /home/{{ main_user }}/Nextcloud/{{ documents_dir }}  /home/{{ main_user }}/{{ documents_dir }}  none  bind  0  0
-      /home/{{ main_user }}/Nextcloud/{{ pictures_dir }}  /home/{{ main_user }}/{{ pictures_dir }}  none  bind  0  0
+  ansible.posix.mount:
+    src: /home/{{ main_user }}/Nextcloud/{{ item }}
+    path: /home/{{ main_user }}/{{ item }}
+    fstype: none
+    opts: bind
+    state: mounted
+  loop:
+    - documents_dir
+    - pictures_dir
   when: documents_dir is defined and pictures_dir is defined
-  notify:
-    - daemon_reload
-    - mount_all
