@@ -3,10 +3,6 @@
   tags: always
 
 - block:
-    ## Configure swap
-    - import_tasks: system_setup/swap.yml
-      when: swap_size_mb is defined
-
     ## User configs
     - import_tasks: users/ville.yml
 
