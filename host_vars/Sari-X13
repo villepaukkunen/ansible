@@ -2,6 +2,9 @@ ssh: true
 unattended_upgrades: true
 main_user: "sari"
 
+# swap
+swap_size_G: "20"
+
 # fstab
 documents_dir: "Asiakirjat"
 pictures_dir: "Kuvat"
