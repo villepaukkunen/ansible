@@ -3,7 +3,7 @@ unattended_upgrades: true
 main_user: "sari"
 
 # swap
-swap_size_G: "20"
+swap_size_mb: "20480"
 
 # fstab
 documents_dir: "Asiakirjat"
