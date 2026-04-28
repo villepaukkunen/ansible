@@ -6,7 +6,7 @@
 
 - name: system setup | swap | Calculate current size in MB
   tags: system,system-setup,swap
-  ansible.builtin.stat:
+  ansible.builtin.set_fact:
     current_size_mb: "{{ (current_swap_file.stat.size / 1048576) | int }}"
   when: current_swap_file.stat.exists
 
