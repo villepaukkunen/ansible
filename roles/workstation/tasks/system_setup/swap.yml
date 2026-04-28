@@ -1,7 +1,7 @@
 - name: system setup | swap | Get current swap file size
   tags: system,system-setup,swap
   ansible.builtin.stat:
-    path: "/swap.img"
+    path: /swap.img
   register: current_swap_file
 
 - name: system setup | swap | Calculate current size in MB
@@ -33,7 +33,7 @@
 - name: system setup | swap | Set permissions on resized swap file
   tags: system,system-setup,swap
   ansible.builtin.file:
-    path: "/swap.img"
+    path: /swap.img
     mode: '0600'
   when: current_size_mb | int < swap_size_mb | int
 
