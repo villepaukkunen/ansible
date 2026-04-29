@@ -9,10 +9,6 @@ swap_size_mb: "20480"
 documents_dir: "Asiakirjat"
 pictures_dir: "Kuvat"
 
-# grub
-resume_uuid: "24ec338b-e2d9-480e-a8d2-58ed5996db19"
-resume_offset: "3106816"
-
 # application selection
 bitwarden: "snap"
 brave: true
