@@ -1,3 +1,27 @@
+- name: system setup | grub | Get root partition UUID
+  tags: system,system-setup,grub
+  ansible.builtin.shell:
+    cmd: "findmnt / -o UUID | awk 'NR==2'"
+  register: findmnt
+
+- name: system setup | grub | Set variable resume_uuid
+  tags: system,system-setup,grub
+  ansible.builtin.set_fact:
+    resume_uuid: >-
+      {{ findmnt.stdout }}
+
+- name: system setup | grub | Get swapfile offset
+  tags: system,system-setup,grub
+  ansible.builtin.shell:
+    cmd: "sudo filefrag -v /swap.img | grep ' 0:'"
+  register: swap_filefrag
+
+- name: system setup | grub | Set variable resume_offset
+  tags: system,system-setup,grub
+  ansible.builtin.set_fact:
+    resume_offset: >-
+      {{ swap_filefrag.stdout | regex_search('[0-9]{2,}') }}
+
 - name: system setup | grub | GRUB_CMDLINE_LINUX_DEFAULT
   tags: system,system-setup,grub
   lineinfile:
@@ -6,5 +30,4 @@
       line: >-
         GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID={{ resume_uuid }}
         resume_offset={{ resume_offset }}"
-  when: resume_uuid is defined and resume_offset is defined
   notify: update_grub
