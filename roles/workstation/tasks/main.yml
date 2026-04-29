@@ -25,7 +25,8 @@
     ## system setup
     - import_tasks: system_setup/flatpak.yml
     - import_tasks: system_setup/fstab.yml
-    - import_tasks: system_setup/grub.yml
+    - include_tasks: system_setup/grub.yml
+      when: swap_size_mb is defined
     - import_tasks: system_setup/logind_conf.yml
     - import_tasks: system_setup/sleep_conf.yml
     - include_tasks: system_setup/unattended_upgrades.yml
