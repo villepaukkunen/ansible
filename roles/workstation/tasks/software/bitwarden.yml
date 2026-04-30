@@ -14,5 +14,6 @@
 
 - name: software | bitwarden | connect to password-manager-service
   tags: packages,snap,bitwarden,workstation-packages
-  ansible.builtin.command: sudo snap connect bitwarden:password-manager-service
+  community.general.snap_connect:
+    plug: bitwarden:password-manager-service
   when: bitwarden is defined and bitwarden == "snap"
