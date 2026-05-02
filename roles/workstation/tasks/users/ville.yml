@@ -16,7 +16,7 @@
   register: mimeapps_list
   changed_when: false
 
-- name: users | ville | check if already brave
+- name: users | ville | check if brave already default browser
   tags: dotfiles,dotfiles-ville
   ansible.builtin.set_fact:
     default_browser: "{{ mimeapps_list.stdout | regex_search('brave') }}"
