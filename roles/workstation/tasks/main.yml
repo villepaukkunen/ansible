@@ -5,6 +5,8 @@
 - block:
     ## User configs
     - import_tasks: users/ville.yml
+    - include_tasks: users/sari.yml
+      when: main_user == "sari"
 
     ## desktop environments
     - include_tasks: desktop_environments/gnome/appearance.yml
