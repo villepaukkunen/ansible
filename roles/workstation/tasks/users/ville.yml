@@ -9,6 +9,18 @@
     - { src: 'layouts.json', dest: '.config/tiling-assistant/layouts.json' }
     - { src: 'waveterm', dest: 'snap' }
 
+- name: users | ville | get text/html default application
+  tags: dotfiles,dotfiles-ville
+  ansible.builtin.shell:
+    cmd: "cat /home/ville/.config/mimeapps.list | awk 'NR==2'"
+  register: mimeapps_list
+  changed_when: false
+
+- name: users | ville | check if already brave
+  tags: dotfiles,dotfiles-ville
+  ansible.builtin.set_fact:
+    default_browser: "{{ mimeapps_list.stdout | regex_search('brave') }}"
+
 - name: users | ville | set brave as default browser
   tags: dotfiles,dotfiles-ville
   become_user: ville
@@ -19,7 +31,7 @@
       - x-scheme-handler/https
       - application/xhtml+xml
     handler: brave_brave.desktop
-  register: result
+  when: default_browser != "brave"
 
 - name: users | ville | copy profile picture
   tags: dotfiles,dotfiles-ville
