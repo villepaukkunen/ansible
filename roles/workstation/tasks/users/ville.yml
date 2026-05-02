@@ -40,3 +40,15 @@
     group: ville
     mode: 0664
   when: bitwarden is defined and bitwarden == "snap"
+
+- name: users | ville | add block to .bashrc
+  tags: dotfiles,dotfiles-ville
+  blockinfile:
+    path: /home/ville/.bashrc
+    insertafter: ""
+    block: |
+      # upgrade command
+      alias upgrade='sudo apt update && sudo apt upgrade && sudo snap refresh && sudo flatpak update'
+
+      # use bitwarden ssh agent
+      SSH_AUTH_SOCK=/home/ville/snap/bitwarden/current/.bitwarden-ssh-agent.sock
