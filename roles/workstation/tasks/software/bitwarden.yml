@@ -12,7 +12,19 @@
     state: present
   when: bitwarden is defined and bitwarden == "snap"
 
+- name: software | bitwarden | get password-manager-service connection status
+  tags: packages,snap,bitwarden,workstation-packages
+  ansible.builtin.shell:
+    cmd: "sudo snap connections bitwarden | grep password-manager-service"
+  register: bitwarden_connections
+  changed_when: false
+
+- name: software | bitwarden | check if already connected
+  tags: packages,snap,bitwarden,workstation-packages
+  ansible.builtin.set_fact:
+    connection_status: "{{ bitwarden_connections.stdout | regex_search('manual') }}"
+
 - name: software | bitwarden | connect to password-manager-service
   tags: packages,snap,bitwarden,workstation-packages
   ansible.builtin.command: sudo snap connect bitwarden:password-manager-service
-  when: bitwarden is defined and bitwarden == "snap"
+  when: bitwarden == "snap" and connection_status != "manual"
