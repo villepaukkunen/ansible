@@ -1,0 +1,7 @@
+[Desktop Entry]
+  Type=Application
+  Name=Bitwarden
+  Comment=Bitwarden startup script
+  Exec=/snap/bitwarden/157/bitwarden-app
+  StartupNotify=false
+  Terminal=false

@@ -16,3 +16,13 @@
   tags: packages,snap,bitwarden,workstation-packages
   ansible.builtin.command: sudo snap connect bitwarden:password-manager-service
   when: bitwarden is defined and bitwarden == "snap"
+
+- name: software | bitwarden | autostart
+  tags: packages,snap,bitwarden,workstation-packages
+  copy:
+    src: bitwarden.desktop
+    dest: /etc/xdg/autostart
+    owner: root
+    group: root
+    mode: 0644
+  when: bitwarden is defined and bitwarden == "snap"
