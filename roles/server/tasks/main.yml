@@ -1,3 +1,7 @@
+# Load host-specific variables
+- include_vars: "{{ ansible_hostname }}.yml"
+  tags: always
+
 - block:
     ## system setup
     - include_tasks: system_setup/k3s.yml
