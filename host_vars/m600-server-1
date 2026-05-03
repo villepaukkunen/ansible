@@ -3,3 +3,7 @@ ssh: true
 # unattended upgrades
 upgrade_time: "5:00"
 randomized_delay: "60m"
+
+# application selection
+ddclient: true
+wireguard: true
