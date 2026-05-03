@@ -3,4 +3,4 @@
   package:
     name: ddclient
     state: present
-  when: ddclient == true
+  when: ddclient is defined and ddclient == true

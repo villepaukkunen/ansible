@@ -3,4 +3,4 @@
   package:
     name: wireguard
     state: present
-  when: wireguard == true
+  when: wireguard is defined and wireguard == true
