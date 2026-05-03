@@ -35,6 +35,7 @@
       when: unattended_upgrades is defined and unattended_upgrades == true
 
     ## install software
+    - import_tasks: software/bitwarden.yml
     - import_tasks: software/brave.yml
     - import_tasks: software/codium.yml
     - import_tasks: software/gimp.yml
@@ -61,5 +62,4 @@
     - import_tasks: software/waveterm.yml
     - import_tasks: software/whatsie.yml
     - import_tasks: software/zoom.yml
-    - import_tasks: software/bitwarden.yml
     - import_tasks: software/zotero.yml
