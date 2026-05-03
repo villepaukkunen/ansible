@@ -3,3 +3,7 @@
     - include_tasks: system_setup/k3s.yml
       when: k3s is defined
     - import_tasks: system_setup/unattended_upgrades.yml
+
+    ## install software
+    - import_tasks: software/ddclient.yml
+    - import_tasks: software/wireguard.yml

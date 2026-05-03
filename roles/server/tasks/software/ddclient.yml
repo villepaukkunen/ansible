@@ -1,0 +1,6 @@
+- name: software | ddclient | install package
+  tags: packages,ddclient,workstation-packages
+  package:
+    name: ddclient
+    state: present
+  when: ddclient == true

@@ -1,0 +1,6 @@
+- name: software | wireguard | install package
+  tags: packages,wireguard,workstation-packages
+  package:
+    name: wireguard
+    state: present
+  when: wireguard == true
