@@ -1,0 +1,10 @@
+- name: system setup | ddclient | generate ddclient.conf from template
+  tags: system,system-setup,ddclient
+  template:
+    src: ddclient_conf.j2
+    dest: /etc/ddclient.conf
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart_ddclient
