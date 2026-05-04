@@ -1,6 +1,7 @@
 # Load host-specific variables
 - include_vars: "{{ ansible_hostname }}.yml"
   tags: always
+  when: host_vars is defined and host_vars == true
 
 - block:
     ## system setup
