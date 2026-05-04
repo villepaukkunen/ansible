@@ -1,5 +1,5 @@
-- name: system setup | ddclient | generate ddclient.conf from template
-  tags: system,system-setup,ddclient
+- name: system setup | wireguard | generate wg0.conf from template
+  tags: system,system-setup,wireguard
   template:
     src: wg0_conf.j2
     dest: /etc/wireguard/wg0.conf
