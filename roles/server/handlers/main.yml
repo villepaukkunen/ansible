@@ -3,8 +3,20 @@
   service:
     daemon_reload: true
 
+- name: restart_ddclient
+  tags: system,system-setup,ddclient
+  service:
+    name: ddclient.service
+    state: restarted
+
 - name: restart_unattended_upgrades
   tags: system,system-setup,unattended-upgrades
   service:
     name: unattended-upgrades.service
+    state: restarted
+
+- name: restart_wg-quick
+  tags: system,system-setup,wg-quick
+  service:
+    name: wg-quick@wg0.service
     state: restarted
