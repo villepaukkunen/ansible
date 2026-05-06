@@ -1,3 +1,15 @@
+- name: system setup | fstab | create nextcloud directories
+  tags: system,system-setup,fstab
+  file:
+    path: /home/{{ main_user }}/Nextcloud/{{ item.dir }}
+    state: directory
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: 0775
+  with_items:
+    - { dir: {{ documents_dir }} }
+    - { dir: {{ pictures_dir }} }
+
 - name: system setup | fstab | mount nextcloud directories
   tags: system,system-setup,fstab
   ansible.posix.mount:
