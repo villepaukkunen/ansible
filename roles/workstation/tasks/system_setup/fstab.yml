@@ -21,4 +21,3 @@
   loop:
     - "{{ documents_dir }}"
     - "{{ pictures_dir }}"
-  when: documents_dir is defined and pictures_dir is defined
