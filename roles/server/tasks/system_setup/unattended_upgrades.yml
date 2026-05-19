@@ -6,6 +6,16 @@
       line: '        "${distro_id}:${distro_codename}-updates";'
   notify: restart_unattended_upgrades
 
+- name: system setup | unattended upgrades | enable docker updates
+  tags: system,system-setup,unattended-upgrades
+  lineinfile:
+      dest: /etc/apt/apt.conf.d/50unattended-upgrades
+      regexp: '"Docker:\$\{distro_codename\}";'
+      insertafter: ' {8}"\$\{distro_id\}:\$\{distro_codename\}-updates";'
+      line: '        "Docker:${distro_codename}";'
+  when: nas is defined and nas == true
+  notify: restart_unattended_upgrades
+
 - name: system setup | unattended upgrades | remove unused dependencies
   tags: system,system-setup,unattended-upgrades
   lineinfile:
