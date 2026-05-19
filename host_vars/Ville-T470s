@@ -5,7 +5,7 @@ bitwarden: "snap"
 brave: true
 gimp: true
 hugo: true
-jellyfin_media_player: true
+jellyfin_desktop: true
 k9s: true
 kdenlive: false
 kubectl: true

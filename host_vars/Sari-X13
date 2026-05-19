@@ -13,7 +13,7 @@ pictures_dir: "Kuvat"
 bitwarden: "snap"
 brave: true
 gimp: true
-jellyfin_media_player: true
+jellyfin_desktop: true
 kdenlive: true
 obsidian: true
 slack: true
