@@ -13,7 +13,7 @@
       regexp: '"Docker:\$\{distro_codename\}";'
       insertafter: ' {8}"\$\{distro_id\}:\$\{distro_codename\}-updates";'
       line: '        "Docker:${distro_codename}";'
-  when: nas is defined and nas == true
+  when: docker is defined and docker == true
   notify: restart_unattended_upgrades
 
 - name: system setup | unattended upgrades | remove unused dependencies
