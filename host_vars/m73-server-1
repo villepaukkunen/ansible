@@ -1,4 +1,5 @@
 ssh: true
+nas: true
 
 # unattended upgrades
 upgrade_time: "5:00"
