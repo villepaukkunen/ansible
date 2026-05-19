@@ -56,6 +56,7 @@
     - import_tasks: software/rustdesk.yml
     - import_tasks: software/signal.yml
     - import_tasks: software/slack.yml
+    - import_tasks: software/software-properties-gtk.yml
     - import_tasks: software/solaar.yml
     - import_tasks: software/spotify.yml
     - import_tasks: software/teams.yml

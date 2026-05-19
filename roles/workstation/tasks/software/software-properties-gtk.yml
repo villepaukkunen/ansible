@@ -1,0 +1,5 @@
+- name: software | software-properties-gtk | install package
+  tags: packages,software-properties-gtk,workstation-packages
+  package:
+    name: software-properties-gtk
+    state: present
