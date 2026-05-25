@@ -1,0 +1,6 @@
+- name: software | virt-manager | install package
+  tags: packages,virt-manager,workstation-packages
+  package:
+    name: virt-manager
+    state: present
+  when: virt_manager is defined and virt_manager == true

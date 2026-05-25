@@ -62,6 +62,7 @@
     - import_tasks: software/teams.yml
     - import_tasks: software/telegram.yml
     - import_tasks: software/texstudio.yml
+    - import_tasks: software/virt-manager.yml
     - import_tasks: software/waveterm.yml
     - import_tasks: software/whatsie.yml
     - import_tasks: software/zoom.yml
