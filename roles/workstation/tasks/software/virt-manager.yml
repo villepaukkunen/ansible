@@ -1,6 +1,8 @@
-- name: software | virt-manager | install package
+- name: software | virt-manager | install packages
   tags: packages,virt-manager,workstation-packages
   package:
-    name: virt-manager
+    name:
+      - virt-manager
+      - virtiofsd
     state: present
   when: virt_manager is defined and virt_manager == true
