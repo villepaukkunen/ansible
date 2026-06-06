@@ -2,6 +2,6 @@
   Type=Application
   Name=Bitwarden
   Comment=Bitwarden startup script
-  Exec=/snap/bitwarden/157/bitwarden-app
+  Exec=/snap/bitwarden/159/bitwarden-app
   StartupNotify=false
   Terminal=false
