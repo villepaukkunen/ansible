@@ -1,0 +1,6 @@
+- name: system setup | bluetooth | AutoEnable
+  tags: system,system-setup,bluetooth
+  lineinfile:
+      dest: /etc/bluetooth/main.conf
+      regexp: "#AutoEnable=true"
+      line: "AutoEnable=false"
