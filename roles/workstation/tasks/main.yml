@@ -41,6 +41,7 @@
       when: bitwarden is defined
     - import_tasks: software/brave.yml
     - import_tasks: software/codium.yml
+    - import_tasks: software/ghostty.yml
     - import_tasks: software/gimp.yml
     - import_tasks: software/gnome_tweaks.yml
     - import_tasks: software/gnome-shell-extension-manager.yml

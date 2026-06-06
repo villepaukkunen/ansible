@@ -1,0 +1,5 @@
+- name: software | ghostty | install package
+  tags: packages,ghostty,workstation-packages
+  package:
+    name: ghostty
+    state: present
