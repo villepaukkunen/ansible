@@ -1,0 +1,5 @@
+- name: software | terminator | install package
+  tags: packages,terminator,workstation-packages
+  package:
+    name: terminator
+    state: present
