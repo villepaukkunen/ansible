@@ -18,7 +18,7 @@
   dconf:
     key: "/org/gnome/shell/favorite-apps"
     value: >-
-      ['brave_brave.desktop', 'thunderbird_thunderbird.desktop', 'waveterm_waveterm.desktop',
+      ['brave_brave.desktop', 'thunderbird_thunderbird.desktop', 'terminator_terminator.desktop',
       'codium_codium.desktop', 'spotify_spotify.desktop', 'org.gnome.Nautilus.desktop',
       'org.gnome.Software.desktop', 'org.gnome.Yelp.desktop']
 
