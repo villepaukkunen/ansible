@@ -1,0 +1,8 @@
+- name: system setup | sudoers | add 0pwfeedback file
+  tags: system,system-setup,sudo,pwfeedback
+  copy:
+    src: 0pwfeedback
+    dest: /etc/sudoers.d/0pwfeedback
+    owner: root
+    group: root
+    mode: 0440
