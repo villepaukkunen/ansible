@@ -51,6 +51,8 @@
     - import_tasks: software/k9s.yml
     - import_tasks: software/kdenlive.yml
     - import_tasks: software/kubectl.yml
+    - include_tasks: software/latex.yml
+      when: latex is defined and latex == true
     - import_tasks: software/nextcloud.yml
     - import_tasks: software/nmap.yml
     - import_tasks: software/obsidian.yml
@@ -65,7 +67,6 @@
     - import_tasks: software/teams.yml
     - import_tasks: software/telegram.yml
     - import_tasks: software/terminator.yml
-    - import_tasks: software/texstudio.yml
     - import_tasks: software/virt-manager.yml
     - import_tasks: software/waveterm.yml
     - import_tasks: software/whatsie.yml

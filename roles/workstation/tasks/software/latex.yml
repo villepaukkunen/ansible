@@ -1,3 +1,10 @@
+- name: software | texlive-full | install package
+  tags: packages,texlive-full,workstation-packages
+  package:
+    name: texlive-full
+    state: present
+  when: texlive is defined and texlive == true
+
 - name: software | texstudio | install package
   tags: packages,flatpak,texstudio,workstation-packages
   flatpak:

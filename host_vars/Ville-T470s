@@ -9,6 +9,7 @@ jellyfin_desktop: true
 k9s: true
 kdenlive: false
 kubectl: true
+latex: true
 obsidian: true
 octave: true
 pycharm: true
@@ -18,7 +19,6 @@ slack: true
 spotify: "snap"
 teams: true
 telegram: true
-texstudio: true
 virt_manager: true
 whatsie: true
 zoom: true
