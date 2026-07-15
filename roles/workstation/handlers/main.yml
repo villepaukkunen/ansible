@@ -3,12 +3,6 @@
   service:
     daemon_reload: true
 
-- name: restart_systemd_logind
-  tags: system,system-setup,logind
-  service:
-    name: systemd-logind.service
-    state: restarted
-
 - name: restart_unattended_upgrades
   tags: system,system-setup,unattended-upgrades
   service:
