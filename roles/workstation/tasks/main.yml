@@ -32,8 +32,7 @@
     - include_tasks: system_setup/grub.yml
       when: swap_size_mb is defined
     - import_tasks: system_setup/logind_conf.yml
-    - include_tasks: system_setup/pwfeedback.yml
-      when: main_user == "ville"
+    - import_tasks: system_setup/pwfeedback.yml
     - import_tasks: system_setup/sleep_conf.yml
     - include_tasks: system_setup/unattended_upgrades.yml
       when: unattended_upgrades is defined and unattended_upgrades == true
