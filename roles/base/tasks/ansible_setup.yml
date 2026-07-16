@@ -8,6 +8,15 @@
     state: touch
   changed_when: False
 
+- name: ansible setup | add logrotate config for ansible log file
+  tags: ansible-setup
+  copy:
+    src: ansible_setup/logrotate
+    dest: /etc/logrotate.d/ansible
+    owner: root
+    group: root
+    mode: 0644
+
 - name: ansible setup | generate provision script from template
   tags: ansible,ansible-setup,scripts
   template:
