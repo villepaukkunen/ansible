@@ -1,0 +1,8 @@
+- name: ansible setup | generate provision script from template
+  tags: ansible,ansible-setup,scripts
+  template:
+    src: provision.sh.j2
+    dest: /usr/local/bin/provision
+    owner: root
+    group: root
+    mode: 0755

@@ -11,6 +11,9 @@
     - import_tasks: users/ville.yml
     - import_tasks: users/ansible.yml
 
+    # Set up the ansible environment
+    - import_tasks: ansible_setup.yml
+
     ## system setup
     - import_tasks: system_setup/clock.yml
     - include_tasks: system_setup/openssh.yml
