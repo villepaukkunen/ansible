@@ -33,3 +33,12 @@
   with_file:
     - users/ansible/ansible.pub
   when: ssh is defined and ssh == true
+
+- name: users | ansible | copy vault key
+  tags: dotfiles,ansible,vault,vault-key,users
+  copy:
+    src: users/ansible/vault-key
+    dest: /home/ansible/.vault_key
+    owner: ansible
+    group: ansible
+    mode: 0600
