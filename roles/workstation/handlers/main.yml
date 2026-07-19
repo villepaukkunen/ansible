@@ -13,3 +13,10 @@
   tags: system,system-setup,update-grub
   command:
     cmd: "update-grub"
+
+- name: restart_systemd_logind
+  tags: system,system-setup,logind
+  ansible.builtin.debug:
+    msg: >-
+      Systemd logind configuration file has changed, a relogin is required for the canges
+      to take effect.
