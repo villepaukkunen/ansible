@@ -25,3 +25,26 @@
     owner: root
     group: root
     mode: 0755
+
+- name: ansible setup | add unit file for systemd service
+  tags: ansible,ansible-setup,systemd,service
+  copy:
+    src: ansible_setup/ansible.service
+    dest: /etc/systemd/system/ansible.service
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - daemon_reload
+
+- name: ansible setup | generate systemd timer from template
+  tags: ansible,ansible-setup,systemd,timer
+  template:
+    src: ansible_setup/ansible.timer.j2
+    dest: /etc/systemd/system/ansible.timer
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - daemon_reload
+    - restart_ansible_timer
