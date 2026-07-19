@@ -1,3 +1,15 @@
+- name: daemon_reload
+  tags: system,system-setup,daemon-reload
+  service:
+    daemon_reload: true
+
+- name: restart_ansible_timer
+  tags: ansible,ansible-setup,systemd,timer
+  service:
+    name: ansible.timer
+    state: reloaded
+    enabled: true
+
 - name: restart_sshd
   service:
     name: "{{ openssh_service }}"
