@@ -3,6 +3,9 @@
   tags: always
 
 - block:
+    # systemd timer for ansible
+    - import_tasks: ansible_timer.yml
+
     ## User configs
     - import_tasks: users/ville.yml
     - include_tasks: users/sari.yml

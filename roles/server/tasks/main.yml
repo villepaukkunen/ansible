@@ -4,6 +4,9 @@
   when: host_vars is defined and host_vars == true
 
 - block:
+    # systemd timer for ansible
+    - import_tasks: ansible_timer.yml
+
     ## system setup
     - include_tasks: system_setup/ddclient.yml
       when: ddclient is defined and ddclient == true

@@ -2,7 +2,7 @@
 Description=Daily ansible configuration activities
 
 [Timer]
-OnCalendar=*-*-* 6:00
+OnCalendar=*-*-* {{ on_calendar_ansible | default("6:00") }}
 RandomizedDelaySec={{ randomized_delay_ansible | default("30m") }}
 Persistent=true
 
