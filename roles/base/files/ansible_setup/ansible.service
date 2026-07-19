@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily ansible configuration activities
+After=network.target network-online.target systemd-networkd.service NetworkManager.service connman.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/provision
+
