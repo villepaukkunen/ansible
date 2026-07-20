@@ -3,6 +3,13 @@
   service:
     daemon_reload: true
 
+- name: restart_ansible_timer
+  tags: ansible,ansible-setup,systemd,timer
+  service:
+    name: ansible.timer
+    state: reloaded
+    enabled: true
+
 - name: restart_ddclient
   tags: system,system-setup,ddclient
   service:
