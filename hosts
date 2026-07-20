@@ -1,12 +1,12 @@
 [server]
-acer-server
-m600-server-1
-m600-server-2
-m720q-server-1
-m73-server-1
-m73-server-2
-m73-server-3
+acer-server.mandariini.uk
+m600-server-1.mandariini.uk
+m600-server-2.mandariini.uk
+m720q-server-1.mandariini.uk
+m73-server-1.mandariini.uk
+m73-server-2.mandariini.uk
+m73-server-3.mandariini.uk
 
 [workstation]
-Sari-X13
-Ville-T470s
+Sari-X13.mandariini.uk
+Ville-T470s.mandariini.uk
