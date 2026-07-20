@@ -1,12 +1,22 @@
-[server]
-acer-server
-m600-server-1
-m600-server-2
-m720q-server-1
-m73-server-1
-m73-server-2
-m73-server-3
+server:
+  hosts:
+    acer-server:
+      ansible_host: 192.168.10.41
+    m600-server-1:
+      ansible_host: 192.168.20.15
+    m600-server-2:
+      ansible_host: 192.168.10.45
+    m720q-server-1:
+      ansible_host: 192.168.10.44
+    m73-server-1:
+      ansible_host: 192.168.10.20
+    m73-server-2:
+      ansible_host: 192.168.10.42
+    m73-server-3:
+      ansible_host: 192.168.10.43
 
-[workstation]
-Sari-X13
-Ville-T470s
+workstation:
+  hosts:
+    Sari-X13:
+      ansible_host: 10.34.0.104
+    Ville-T470s:
