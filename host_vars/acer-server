@@ -1,5 +1,6 @@
 ssh: true
-k3s: "server"
+k3s: "agent"
 
 # unattended upgrades
-upgrade_time: "4:20"
+upgrade_time: "3:00"
+randomized_delay: "60m"
