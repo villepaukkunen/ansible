@@ -3,8 +3,8 @@
   tags: always
 
 - block:
-    # systemd timer for ansible
-    - import_tasks: ansible_timer.yml
+    # Set up the ansible environment
+    - import_tasks: ansible_setup.yml
 
     ## User configs
     - import_tasks: users/ville.yml
