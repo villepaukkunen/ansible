@@ -7,6 +7,7 @@
     - import_tasks: ansible_setup.yml
 
     ## User configs
+    - import_tasks: users/ansible.yml
     - import_tasks: users/ville.yml
     - include_tasks: users/sari.yml
       when: main_user == "sari"
