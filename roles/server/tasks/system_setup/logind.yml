@@ -1,0 +1,23 @@
+- name: system setup | logind | set HandleSuspendKey to ignore
+  tags: system,system-setup,logind
+  lineinfile:
+      dest: /etc/systemd/logind.conf
+      regexp: '#HandleSuspendKey=suspend'
+      line: 'HandleSuspendKey=ignore'
+  notify: restart_systemd_logind
+
+- name: system setup | logind | set HandleLidSwitch to ignore
+  tags: system,system-setup,logind
+  lineinfile:
+      dest: /etc/systemd/logind.conf
+      regexp: '#HandleLidSwitch=suspend'
+      line: 'HandleLidSwitch=ignore'
+  notify: restart_systemd_logind
+
+- name: system setup | logind | set HandleLidSwitchDocked to ignore
+  tags: system,system-setup,logind
+  lineinfile:
+      dest: /etc/systemd/logind.conf
+      regexp: '#HandleLidSwitchDocked=ignore'
+      line: 'HandleLidSwitchDocked=ignore'
+  notify: restart_systemd_logind

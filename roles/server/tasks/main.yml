@@ -12,6 +12,8 @@
       when: ddclient is defined and ddclient == true
     - include_tasks: system_setup/k3s.yml
       when: k3s is defined
+    - include_tasks: system_setup/logind.yml
+      when: laptop is defined and laptop == true
     - import_tasks: system_setup/unattended_upgrades.yml
     - include_tasks: system_setup/wireguard.yml
       when: wireguard is defined and wireguard == true
