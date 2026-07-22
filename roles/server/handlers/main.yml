@@ -16,6 +16,12 @@
     name: ddclient.service
     state: restarted
 
+- name: restart_systemd_logind
+  tags: system,system-setup,systemd-logind
+  service:
+    name: systemd-logind.service
+    state: restarted
+
 - name: restart_unattended_upgrades
   tags: system,system-setup,unattended-upgrades
   service:
