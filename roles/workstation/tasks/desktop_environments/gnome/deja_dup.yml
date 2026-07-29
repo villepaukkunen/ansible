@@ -10,7 +10,7 @@
   become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/delete-after"
-    value: " delete_after | default('30') "
+    value: "{{ delete_after | default('30') }}"
 
 - name: gnome | deja-dup settings | exclude-list
   tags: gnome,backup,deja-dup
@@ -24,7 +24,7 @@
   become_user: "{{ main_user }}"
   dconf:
     key: "/org/gnome/deja-dup/full-backup-period"
-    value: " full_backup_period | default('15') "
+    value: "{{ full_backup_period | default('15') }}"
 
 - name: gnome | deja-dup settings | periodic
   tags: gnome,backup,deja-dup
