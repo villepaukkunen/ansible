@@ -19,6 +19,13 @@
     key: "/org/gnome/deja-dup/exclude-list"
     value: "['$TRASH', '$DOWNLOAD']"
 
+- name: gnome | deja-dup settings | full-backup-period
+  tags: gnome,backup,deja-dup
+  become_user: "{{ main_user }}"
+  dconf:
+    key: "/org/gnome/deja-dup/full-backup-period"
+    value: "15"
+
 - name: gnome | deja-dup settings | periodic
   tags: gnome,backup,deja-dup
   become_user: "{{ main_user }}"
