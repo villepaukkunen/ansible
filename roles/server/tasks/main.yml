@@ -1,5 +1,5 @@
 # Load host-specific variables
-- include_vars: "{{ ansible_hostname }}.yml"
+- include_vars: '{{ ansible_facts["hostname"] }}.yml'
   tags: always
   when: host_vars is defined and host_vars == true
 
