@@ -12,7 +12,7 @@ pipeline {
                     - cat
                   tty: true
                   securityContext:
-                    privileged: true
+                    privileged: false
             '''
         }
     }
