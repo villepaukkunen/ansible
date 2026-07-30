@@ -1,0 +1,8 @@
+- name: users | ansible | add public key
+  tags: dotfiles,ansible,ssh,ssh-keys,users
+  authorized_key:
+    user: ansible
+    key: "{{ item }}"
+  with_file:
+    - users/ansible/jenkins.pub
+  when: ssh is defined and ssh == true

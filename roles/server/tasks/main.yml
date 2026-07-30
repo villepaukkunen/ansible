@@ -4,6 +4,9 @@
   when: host_vars is defined and host_vars == true
 
 - block:
+    ## User configs
+    - import_tasks: users/ansible.yml
+
     ## system setup
     - include_tasks: system_setup/ddclient.yml
       when: ddclient is defined and ddclient == true
