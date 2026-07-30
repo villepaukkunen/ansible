@@ -1,6 +1,6 @@
 [all:vars]
-host_domain = "mandariini.uk"
-ansible_host = "{{ inventory_hostname_short }}.{{ host_domain }}"
+host_domain=mandariini.uk
+ansible_host="{{ inventory_hostname_short }}.{{ host_domain }}"
 
 [server]
 acer-server
