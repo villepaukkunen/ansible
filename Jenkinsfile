@@ -17,7 +17,7 @@ pipeline {
         }
     }
     environment {
-        SSH_CREDS = credentials('ansible')
+        SSH_CREDS = credentials('ssh-key')
         VAULT_KEY = credentials('vault-key')
     }
     triggers {
@@ -28,6 +28,7 @@ pipeline {
             steps {
                 script{
                     env.LIMIT = "server"
+                    env.USER = "ansible"
                 }
             }
         }
@@ -35,7 +36,7 @@ pipeline {
             steps {
                 container('ansible') {
                     sh '''
-                    ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file $VAULT_KEY --limit $LIMIT -u $SSH_CREDS_USR
+                    ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file $VAULT_KEY --limit $LIMIT -u $USER
                     '''
                 }
             }
