@@ -2,17 +2,17 @@ pipeline {
     agent {
         kubernetes {
             yaml '''
-            apiVersion: v1
-            kind: Pod
-            spec:
-              containers:
-                - name: ansible
-                  image: docker.io/alpine/ansible
-                  command:
-                    - cat
-                  tty: true
-                  securityContext:
-                    privileged: false
+                apiVersion: v1
+                kind: Pod
+                spec:
+                  containers:
+                    - name: ansible
+                      image: docker.io/alpine/ansible
+                      command:
+                        - cat
+                      tty: true
+                      securityContext:
+                        privileged: false
             '''
         }
     }
@@ -36,8 +36,8 @@ pipeline {
             steps {
                 container('ansible') {
                     sh '''
-                    echo $VAULT_KEY > .vault_key
-                    chmod 0600 .vault_key
+                        echo $VAULT_KEY > .vault_key
+                        chmod 0600 .vault_key
                     '''
                 }
             }
@@ -46,7 +46,7 @@ pipeline {
             steps {
                 container('ansible') {
                     sh '''
-                    ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file .vault_key --limit $LIMIT -u $USER
+                        ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file .vault_key --limit $LIMIT -u $USER
                     '''
                 }
             }
