@@ -34,9 +34,12 @@ pipeline {
         }
         stage('Create vault key file') {
             steps {
-                sh '''
-                echo $VAULT_KEY > .vault_key
-                '''
+                container('ansible') {
+                    sh '''
+                    echo $VAULT_KEY > .vault_key
+                    chmod 0600 .vault_key
+                    '''
+                }
             }
         }
         stage('Configure servers') {
