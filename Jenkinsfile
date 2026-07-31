@@ -32,11 +32,20 @@ pipeline {
                 }
             }
         }
+        stage('Create vault key file') {
+            steps {
+                container('ansible') {
+                    sh '''
+                    echo $VAULT_KEY > .vault_key
+                    '''
+                }
+            }
+        }
         stage('Configure servers') {
             steps {
                 container('ansible') {
                     sh '''
-                    ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file $VAULT_KEY --limit $LIMIT -u $USER
+                    ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file .vault_key --limit $LIMIT -u $USER
                     '''
                 }
             }
