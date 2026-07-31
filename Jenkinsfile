@@ -36,7 +36,7 @@ pipeline {
             steps {
                 container('ansible') {
                     sh '''
-                    ansible-playbook local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file $VAULT_KEY --limit $LIMIT -u $USER
+                    ansible-playbook -vvvvv local.yml --private-key $SSH_CREDS --ssh-extra-args "-o StrictHostKeyChecking=no" --vault-password-file $VAULT_KEY --limit $LIMIT -u $USER
                     '''
                 }
             }
