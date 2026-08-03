@@ -1,0 +1,13 @@
+- name: system setup | longhorn | stop and disable multipathd.service
+  tags: system,system-setup,longhorn,multipathd
+  service:
+    name: multipathd.service
+    state: stopped
+    enabled: false
+
+- name: system setup | longhorn | stop and disable multipathd.socket
+  tags: system,system-setup,longhorn,multipathd
+  service:
+    name: multipathd.socket
+    state: stopped
+    enabled: false
