@@ -2,6 +2,9 @@
 - include_vars: '{{ ansible_facts["hostname"] }}.yml'
   tags: always
   when: host_vars is defined and host_vars == true
+- include_vars: 'k3s.yml'
+  tags: always
+  when: k3s is defined
 
 - block:
     ## User configs
