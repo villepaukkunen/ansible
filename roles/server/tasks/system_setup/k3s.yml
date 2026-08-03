@@ -13,6 +13,16 @@
     - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
   when: k3s == "server"
 
+- name: system setup | k3s | create directory for k3s configuration drop-in files
+  tags: system,system-setup,k3s
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: root
+    group: root
+  with_items:
+    - { dir: '/etc/rancher/k3s/config.yaml.d' }
+
 - name: system setup | k3s | generate k3s token configuration file from template
   tags: system,system-setup,k3s
   template:
