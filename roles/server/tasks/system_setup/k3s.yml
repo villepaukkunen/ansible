@@ -13,6 +13,15 @@
     - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
   when: k3s == "server"
 
+- name: system setup | k3s | generate generate token.yaml from template
+  tags: system,system-setup,k3s
+  template:
+    src: token.yaml.j2
+    dest: /etc/rancher/k3s/config.yaml.d/token.yaml
+    owner: root
+    group: root
+    mode: 0600
+
 - name: system setup | k3s | create log directory
   tags: system,system-setup,k3s,k3s-server
   file:
