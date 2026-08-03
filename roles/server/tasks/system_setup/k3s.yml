@@ -13,7 +13,7 @@
     - { src: 'k3s-resolv.conf', dest: 'etc/k3s-resolv.conf' }
   when: k3s == "server"
 
-- name: system setup | k3s | generate token.yaml from template
+- name: system setup | k3s | generate k3s token configuration file from template
   tags: system,system-setup,k3s
   template:
     src: token.yaml.j2
