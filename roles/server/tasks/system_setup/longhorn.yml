@@ -1,3 +1,13 @@
+- name: system setup | longhorn | install required packages
+  tags: system,system-setup,longhorn,nfs-common
+  package:
+    name:
+      - nfs-common
+      - cryptsetup
+      - dmsetup
+      - open-iscsi
+    state: present
+
 - name: system setup | longhorn | stop and disable multipathd.service
   tags: system,system-setup,longhorn,multipathd
   service:
