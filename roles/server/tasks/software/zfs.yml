@@ -1,4 +1,4 @@
-- name: software | zfs | install package
+- name: software | zfsutils | install package
   tags: packages,zfs,server-packages
   package:
     name: zfsutils-linux
