@@ -31,4 +31,4 @@
     - include_tasks: software/docker.yml
       when: docker is defined and docker == true
     - import_tasks: software/wireguard.yml
-    - include_tasks: software/zfs.yml
+    - import_tasks: software/zfs.yml
