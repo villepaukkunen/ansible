@@ -1,0 +1,6 @@
+- name: software | zfs | install package
+  tags: packages,zfs,server-packages
+  package:
+    name: zfsutils-linux
+    state: present
+  when: zfs is defined and zfs == true
