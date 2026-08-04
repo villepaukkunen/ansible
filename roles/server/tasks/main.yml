@@ -24,5 +24,7 @@
       when: wireguard is defined and wireguard == true
 
     ## install software
+    - include_tasks: software/docker.yml
+      when: docker is defined and docker == true
     - import_tasks: software/ddclient.yml
     - import_tasks: software/wireguard.yml
