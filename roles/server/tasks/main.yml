@@ -9,6 +9,7 @@
 - block:
     ## User configs
     - import_tasks: users/ansible.yml
+    - import_tasks: users/ville.yml
 
     ## system setup
     - include_tasks: system_setup/ddclient.yml
