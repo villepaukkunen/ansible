@@ -7,10 +7,6 @@
   when: k3s is defined
 
 - block:
-    ## User configs
-    - import_tasks: users/ansible.yml
-    - import_tasks: users/ville.yml
-
     ## system setup
     - include_tasks: system_setup/ddclient.yml
       when: ddclient is defined and ddclient == true
@@ -25,6 +21,10 @@
     - import_tasks: system_setup/unattended_upgrades.yml
     - include_tasks: system_setup/wireguard.yml
       when: wireguard is defined and wireguard == true
+
+    ## User configs
+    - import_tasks: users/ansible.yml
+    - import_tasks: users/ville.yml
 
     ## install software
     - include_tasks: software/docker.yml
