@@ -1,0 +1,5 @@
+- name: system setup | docker | ensure group "docker" exists
+  tags: system,system-setup,docker
+  ansible.builtin.group:
+    name: docker
+    state: present

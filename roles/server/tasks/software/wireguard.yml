@@ -1,5 +1,5 @@
 - name: software | wireguard | install package
-  tags: packages,wireguard,workstation-packages
+  tags: packages,wireguard,server-packages
   package:
     name: wireguard
     state: present

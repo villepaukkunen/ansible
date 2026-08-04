@@ -1,0 +1,7 @@
+- name: users | ville | add user to docker group
+  tags: groups,ville,docker,users
+  ansible.builtin.user:
+    name: ville
+    groups: docker
+    append: yes
+  when: docker is defined and docker == true
