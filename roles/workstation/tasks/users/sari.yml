@@ -15,7 +15,7 @@
     insertafter: ""
     block: |
       # upgrade command
-      alias upgrade='sudo apt update && sudo apt upgrade && sudo snap refresh && sudo flatpak update'
+      alias upgrade='sudo apt update && sudo apt full-upgrade && sudo snap refresh && sudo flatpak update'
 
       # use bitwarden ssh agent
       SSH_AUTH_SOCK=/home/sari/snap/bitwarden/current/.bitwarden-ssh-agent.sock
