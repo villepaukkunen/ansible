@@ -2,6 +2,11 @@
   become: true
   pre_tasks:
 
+- hosts: firewall
+  become: true
+  roles:
+    - firewall
+
 - hosts: server
   become: true
   roles:
