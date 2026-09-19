@@ -1,18 +1,15 @@
- - hosts: all
-   become: true
-   pre_tasks:
+- hosts: all
+  become: true
+  pre_tasks:
 
- - hosts: all
-   become: true
-   roles:
-     - base
+- hosts: server
+  become: true
+  roles:
+    - base
+    - server
 
- - hosts: server
-   become: true
-   roles:
-     - server
-
- - hosts: workstation
-   become: true
-   roles:
-     - workstation
+- hosts: workstation
+  become: true
+  roles:
+    - base
+    - workstation
