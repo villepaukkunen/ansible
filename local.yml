@@ -1,9 +1,8 @@
-- hosts: all
+- hosts: server:workstation
   become: true
   pre_tasks:
 
 - hosts: firewall
-  become: true
   roles:
     - firewall
 
