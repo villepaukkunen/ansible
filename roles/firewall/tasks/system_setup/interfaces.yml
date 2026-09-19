@@ -1,0 +1,54 @@
+- name: system setup | interfaces | configure MGMT interface
+  tags: system,system-setup,interfaces
+  pfsensible.core.pfsense_interface:
+    descr: MGMT
+    interface: lagg0
+    enable: True
+    ipv4_type: static
+    ipv6_type: none
+    ipv4_address: 192.168.10.1
+    ipv4_prefixlen: 28
+
+- name: system setup | interfaces | configure NAS interface
+  tags: system,system-setup,interfaces
+  pfsensible.core.pfsense_interface:
+    descr: NAS
+    interface: lagg0.3
+    enable: True
+    ipv4_type: static
+    ipv6_type: none
+    ipv4_address: 192.168.10.17
+    ipv4_prefixlen: 29
+
+- name: system setup | interfaces | configure SRV interface
+  tags: system,system-setup,interfaces
+  pfsensible.core.pfsense_interface:
+    descr: SRV
+    interface: lagg0.4
+    enable: True
+    ipv4_type: static
+    ipv6_type: none
+    ipv4_address: 192.168.10.33
+    ipv4_prefixlen: 27
+
+- name: system setup | interfaces | configure PERSONAL interface
+  tags: system,system-setup,interfaces
+  pfsensible.core.pfsense_interface:
+    descr: PERSONAL
+    interface: lagg0.5
+    enable: True
+    ipv4_type: static
+    ipv6_type: none
+    ipv4_address: 192.168.10.65
+    ipv4_prefixlen: 26
+
+- name: system setup | interfaces | configure IOT interface
+  tags: system,system-setup,interfaces
+  pfsensible.core.pfsense_interface:
+    descr: IOT
+    interface: lagg0.6
+    enable: True
+    ipv4_type: static
+    ipv6_type: none
+    ipv4_address: 192.168.10.129
+    ipv4_prefixlen: 28
