@@ -1,0 +1,6 @@
+- name: system setup | routes | configure static route to Hellevi
+  tags: system,system-setup,routes
+  pfsensible.core.pfsense_route:
+    descr: Hellevi
+    gateway: WG0
+    network: 192.168.20.0/24
