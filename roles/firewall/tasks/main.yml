@@ -11,3 +11,4 @@
     - import_tasks: system_setup/vlans.yml
     - import_tasks: system_setup/interfaces.yml
     - import_tasks: system_setup/dhcp.yml
+    - import_tasks: system_setup/aliases.yml
