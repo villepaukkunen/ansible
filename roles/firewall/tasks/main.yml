@@ -1,3 +1,7 @@
+# Load variables
+- include_vars: 'mac-addresses.yml'
+  tags: always
+
 - block:
     # install software
     - import_tasks: software/packages.yml
@@ -5,3 +9,4 @@
     ## system setup
     - import_tasks: system_setup/vlans.yml
     - import_tasks: system_setup/interfaces.yml
+    - import_tasks: system_setup/dhcp.yml

@@ -1,0 +1,79 @@
+- name: system setup | dhcp | create static mapping for hpe-switch-1
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: MGMT
+    hostname: hpe-switch-1
+    macaddr: "{{ hpe_switch_1 }}"
+    ipaddr: 192.168.10.2
+
+- name: system setup | dhcp | create static mapping for m73-server-1
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: NAS
+    hostname: m73-server-1
+    macaddr: "{{ m73_server_1 }}"
+    ipaddr: 192.168.10.20
+
+- name: system setup | dhcp | create static mapping for acer-server
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: SRV
+    hostname: acer-server
+    macaddr: "{{ acer_server }}"
+    ipaddr: 192.168.10.41
+
+- name: system setup | dhcp | create static mapping for m73-server-2
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: SRV
+    hostname: m73-server-2
+    macaddr: "{{ m73_server_2 }}"
+    ipaddr: 192.168.10.42
+
+- name: system setup | dhcp | create static mapping for m73-server-3
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: SRV
+    hostname: m73-server-3
+    macaddr: "{{ m73_server_3 }}"
+    ipaddr: 192.168.10.43
+
+- name: system setup | dhcp | create static mapping for m720q-server-1
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: SRV
+    hostname: m720q-server-1
+    macaddr: "{{ m720q_server_1 }}"
+    ipaddr: 192.168.10.44
+
+- name: system setup | dhcp | create static mapping for m600-server-2
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: SRV
+    hostname: m600-server-2
+    macaddr: "{{ m600_server_2 }}"
+    ipaddr: 192.168.10.45
+
+- name: system setup | dhcp | create static mapping for Ville-S10
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: PERSONAL
+    hostname: Ville-S10
+    macaddr: "{{ Ville_S10 }}"
+    ipaddr: 192.168.10.67
+
+- name: system setup | dhcp | create static mapping for Sari-X13
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: PERSONAL
+    hostname: Sari-X13
+    macaddr: "{{ Sari_X13 }}"
+    ipaddr: 192.168.10.68
+
+- name: system setup | dhcp | create static mapping for Ville-T470s
+  tags: system,system-setup,dhcp
+  pfsensible.core.pfsense_dhcp_static:
+    netif: PERSONAL
+    hostname: Ville-T470s
+    macaddr: "{{ Ville_T470s }}"
+    ipaddr: 192.168.10.69
