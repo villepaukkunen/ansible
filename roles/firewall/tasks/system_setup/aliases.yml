@@ -95,7 +95,7 @@
   pfsensible.core.pfsense_alias:
     name: Services
     type: host
-    address: 192.168.10.55 192.168.10.41
+    address: 192.168.10.55
 
 - name: system setup | aliases | add SuperTuxKart host alias
   tags: system,system-setup,aliases
