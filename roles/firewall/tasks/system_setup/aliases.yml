@@ -83,6 +83,13 @@
     type: network
     address: 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
 
+- name: system setup | aliases | add ipv6 private networks alias
+  tags: system,system-setup,aliases
+  pfsensible.core.pfsense_alias:
+    name: PrivateNetworks6
+    type: network
+    address: fc00::/7
+
 - name: system setup | aliases | add samsung tv alias
   tags: system,system-setup,aliases
   pfsensible.core.pfsense_alias:
