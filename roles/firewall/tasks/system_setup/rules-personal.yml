@@ -1,4 +1,4 @@
-- name: system setup | PERSONAL rules | Deny PERSONAL to PERSONAL pfSenseAdmin
+- name: system setup | rules | PERSONAL | Deny PERSONAL to PERSONAL pfSenseAdmin
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: block
@@ -11,7 +11,7 @@
     destination_port: pfSenseAdmin
     name: Deny PERSONAL to PERSONAL pfSenseAdmin
 
-- name: system setup | PERSONAL rules | Allow traffic inside PERSONAL
+- name: system setup | rules | PERSONAL | Allow traffic inside PERSONAL
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -24,7 +24,7 @@
     name: Allow traffic inside PERSONAL
     after: Deny PERSONAL to PERSONAL pfSenseAdmin
 
-- name: system setup | PERSONAL rules | Deny PERSONAL to IOT pfSenseAdmin
+- name: system setup | rules | PERSONAL | Deny PERSONAL to IOT pfSenseAdmin
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: block
@@ -38,7 +38,7 @@
     name: Deny PERSONAL to IOT pfSenseAdmin
     after: Allow traffic inside PERSONAL
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to IOT
+- name: system setup | rules | PERSONAL | Allow PERSONAL to IOT
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -51,7 +51,7 @@
     name: Allow PERSONAL to IOT
     after: Deny PERSONAL to IOT pfSenseAdmin
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to non private networks
+- name: system setup | rules | PERSONAL | Allow PERSONAL to non private networks
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -64,7 +64,7 @@
     name: Allow PERSONAL to non private networks
     after: Allow PERSONAL to IOT
 
-- name: system setup | PERSONAL rules | Allow PERSONAL IPv6 to non private networks
+- name: system setup | rules | PERSONAL | Allow PERSONAL IPv6 to non private networks
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -77,7 +77,7 @@
     name: Allow PERSONAL IPv6 to non private networks
     after: Allow PERSONAL to non private networks
 
-- name: system setup | PERSONAL rules | Deny PERSONAL to WG0 pfSenseAdmin
+- name: system setup | rules | PERSONAL | Deny PERSONAL to WG0 pfSenseAdmin
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: block
@@ -91,7 +91,7 @@
     name: Deny PERSONAL to WG0 pfSenseAdmin
     after: Allow PERSONAL IPv6 to non private networks
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to WG0
+- name: system setup | rules | PERSONAL | Allow PERSONAL to WG0
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -104,7 +104,7 @@
     name: Allow PERSONAL to WG0
     after: Deny PERSONAL to WG0 pfSenseAdmin
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to Hellevi
+- name: system setup | rules | PERSONAL | Allow PERSONAL to Hellevi
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -117,7 +117,7 @@
     name: Allow PERSONAL to Hellevi
     after: Allow PERSONAL to WG0
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to HAProxy
+- name: system setup | rules | PERSONAL | Allow PERSONAL to HAProxy
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -131,7 +131,7 @@
     name: Allow PERSONAL to HAProxy
     after: Allow PERSONAL to Hellevi
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to NAS
+- name: system setup | rules | PERSONAL | Allow PERSONAL to NAS
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -145,7 +145,7 @@
     name: Allow PERSONAL to NAS
     after: Allow PERSONAL to HAProxy
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to services
+- name: system setup | rules | PERSONAL | Allow PERSONAL to services
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -159,7 +159,7 @@
     name: Allow PERSONAL to services
     after: Allow PERSONAL to NAS
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to SuperTuxKart
+- name: system setup | rules | PERSONAL | Allow PERSONAL to SuperTuxKart
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass
@@ -173,7 +173,7 @@
     name: Allow PERSONAL to SuperTuxKart
     after: Allow PERSONAL to services
 
-- name: system setup | PERSONAL rules | Allow PERSONAL to netboot.xyz
+- name: system setup | rules | PERSONAL | Allow PERSONAL to netboot.xyz
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: pass

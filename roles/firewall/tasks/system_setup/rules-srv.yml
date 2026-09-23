@@ -1,4 +1,4 @@
-- name: system setup | SRV rules | Deny SRV to SRV pfSenseAdmin
+- name: system setup | rules | SRV | Deny SRV to SRV pfSenseAdmin
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: block
@@ -11,7 +11,7 @@
     destination_port: pfSenseAdmin
     name: Deny SRV to SRV pfSenseAdmin
 
-- name: system setup | SRV rules | Deny SRV to NetbootXYZ Ports
+- name: system setup | rules | SRV | Deny SRV to NetbootXYZ Ports
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: block
@@ -25,7 +25,7 @@
     name: Deny SRV to NetbootXYZ Ports
     after: Deny SRV to SRV pfSenseAdmin
 
-- name: system setup | SRV rules | Allow traffic inside SRV
+- name: system setup | rules | SRV | Allow traffic inside SRV
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: pass
@@ -38,7 +38,7 @@
     name: Allow traffic inside SRV
     after: Deny SRV to NetbootXYZ Ports
 
-- name: system setup | SRV rules | Deny SRV to NAS pfSenseAdmin
+- name: system setup | rules | SRV | Deny SRV to NAS pfSenseAdmin
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: block
@@ -52,7 +52,7 @@
     name: Deny SRV to NAS pfSenseAdmin
     after: Allow traffic inside SRV
 
-- name: system setup | SRV rules | Allow SRV to NAS
+- name: system setup | rules | SRV | Allow SRV to NAS
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: pass
@@ -65,7 +65,7 @@
     name: Allow SRV to NAS
     after: Deny SRV to NAS pfSenseAdmin
 
-- name: system setup | SRV rules | Allow SRV to m600-server-1
+- name: system setup | rules | SRV | Allow SRV to m600-server-1
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: pass
@@ -79,7 +79,7 @@
     name: Allow SRV to m600-server-1
     after: Allow SRV to NAS
 
-- name: system setup | SRV rules | Allow netboot.xyz to PERSONAL
+- name: system setup | rules | SRV | Allow netboot.xyz to PERSONAL
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: pass
@@ -92,7 +92,7 @@
     name: Allow netboot.xyz to PERSONAL
     after: Allow SRV to m600-server-1
 
-- name: system setup | SRV rules | Allow SRV to non private networks
+- name: system setup | rules | SRV | Allow SRV to non private networks
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: pass
@@ -105,7 +105,7 @@
     name: Allow SRV to non private networks
     after: Allow netboot.xyz to PERSONAL
 
-- name: system setup | SRV rules | Allow SRV IPv6 to non private networks
+- name: system setup | rules | SRV | Allow SRV IPv6 to non private networks
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: pass

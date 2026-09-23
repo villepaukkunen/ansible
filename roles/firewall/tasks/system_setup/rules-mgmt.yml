@@ -1,4 +1,4 @@
-- name: system setup | MGMT rules | Deny MGMT to NetbootXYZ Ports
+- name: system setup | rules | MGMT | Deny MGMT to NetbootXYZ Ports
   tags: system,system-setup,rules,rules-mgmt
   pfsensible.core.pfsense_rule:
     action: block
@@ -11,7 +11,7 @@
     destination_port: NetbootXYZports
     name: Deny MGMT to NetbootXYZ Ports
 
-- name: system setup | MGMT rules | Default allow MGMT to any rule
+- name: system setup | rules | MGMT | Default allow MGMT to any rule
   tags: system,system-setup,rules,rules-mgmt
   pfsensible.core.pfsense_rule:
     action: pass
@@ -24,7 +24,7 @@
     name: Default allow MGMT to any rule
     after: Deny MGMT to NetbootXYZ Ports
 
-- name: system setup | MGMT rules | Default allow MGMT IPv6 to any rule
+- name: system setup | rules | MGMT | Default allow MGMT IPv6 to any rule
   tags: system,system-setup,rules,rules-mgmt
   pfsensible.core.pfsense_rule:
     action: pass

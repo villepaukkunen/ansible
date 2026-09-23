@@ -1,4 +1,4 @@
-- name: system setup | WAN rules | Wireguard
+- name: system setup | rules | WAN | Wireguard
   tags: system,system-setup,rules,rules-wan
   pfsensible.core.pfsense_rule:
     action: pass

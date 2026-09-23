@@ -1,4 +1,4 @@
-- name: system setup | NAS rules | Deny NAS to NAS pfSenseAdmin
+- name: system setup | rules | NAS | Deny NAS to NAS pfSenseAdmin
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: block
@@ -11,7 +11,7 @@
     destination_port: pfSenseAdmin
     name: Deny NAS to NAS pfSenseAdmin
 
-- name: system setup | NAS rules | Allow traffic inside NAS
+- name: system setup | rules | NAS | Allow traffic inside NAS
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: pass
@@ -24,7 +24,7 @@
     name: Allow traffic inside NAS
     after: Deny NAS to NAS pfSenseAdmin
 
-- name: system setup | NAS rules | Allow NAS to m600-server-1
+- name: system setup | rules | NAS | Allow NAS to m600-server-1
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: pass
@@ -37,7 +37,7 @@
     name: Allow NAS to m600-server-1
     after: Allow traffic inside NAS
 
-- name: system setup | NAS rules | Allow NAS to non private networks
+- name: system setup | rules | NAS | Allow NAS to non private networks
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: pass
@@ -50,7 +50,7 @@
     name: Allow NAS to non private networks
     after: Allow NAS to m600-server-1
 
-- name: system setup | NAS rules | Allow NAS IPv6 to non private networks
+- name: system setup | rules | NAS | Allow NAS IPv6 to non private networks
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: pass
@@ -63,7 +63,7 @@
     name: Allow NAS IPv6 to non private networks
     after: Allow NAS to non private networks
 
-- name: system setup | NAS rules | Allow NAS to services
+- name: system setup | rules | NAS | Allow NAS to services
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: pass
@@ -77,7 +77,7 @@
     name: Allow NAS to services
     after: Allow NAS IPv6 to non private networks
 
-- name: system setup | NAS rules | Allow NAS to SamsungTV
+- name: system setup | rules | NAS | Allow NAS to SamsungTV
   tags: system,system-setup,rules,rules-nas
   pfsensible.core.pfsense_rule:
     action: pass
