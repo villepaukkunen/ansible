@@ -1,0 +1,23 @@
+- name: system setup | nat | configure port forwarding for http traffic
+  tags: system,system-setup,nat
+  pfsensible.core.pfsense_nat_port_forward:
+    interface: WAN
+    ipprotocol: inet
+    protocol: tcp
+    source: Cloudlfare
+    destination: WAN:80
+    target: TraefikKube:81
+    descr: Allow Cloudflare to WebExt
+    associated_rule: associated
+
+- name: system setup | nat | configure port forwarding for https traffic
+  tags: system,system-setup,nat
+  pfsensible.core.pfsense_nat_port_forward:
+    interface: WAN
+    ipprotocol: inet
+    protocol: tcp
+    source: Cloudlfare
+    destination: WAN:443
+    target: TraefikKube:444
+    descr: Allow Cloudflare to WebSecXt
+    associated_rule: associated
