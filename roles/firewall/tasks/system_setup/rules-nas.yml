@@ -1,0 +1,91 @@
+- name: system setup | NAS rules | Deny NAS to NAS pfSenseAdmin
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: NAS
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:NAS
+    destination: IP:NAS
+    destination_port: pfSenseAdmin
+    name: Deny NAS to NAS pfSenseAdmin
+
+- name: system setup | NAS rules | Allow traffic inside NAS
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: NAS
+    ipprotocol: inet
+    protocol: any
+    source: NET:NAS
+    destination: NET:NAS
+    name: Allow traffic inside NAS
+    after: Deny NAS to NAS pfSenseAdmin
+
+- name: system setup | NAS rules | Allow NAS to m600-server-1
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: NAS
+    ipprotocol: inet
+    protocol: any
+    source: NET:NAS
+    destination: m600server1
+    name: Allow NAS to m600-server-1
+    after: Allow traffic inside NAS
+
+- name: system setup | NAS rules | Allow NAS to non private networks
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: NAS
+    ipprotocol: inet
+    protocol: any
+    source: NET:NAS
+    destination: "!PrivateNetworks"
+    name: Allow NAS to non private networks
+    after: Allow NAS to m600-server-1
+
+- name: system setup | NAS rules | Allow NAS IPv6 to non private networks
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: NAS
+    ipprotocol: inet6
+    protocol: any
+    source: NET:NAS
+    destination: "!PrivateNetworks6"
+    name: Allow NAS IPv6 to non private networks
+    after: Allow NAS to non private networks
+
+- name: system setup | NAS rules | Allow NAS to services
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: NAS
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:NAS
+    destination: Services
+    destination_port: WebPorts
+    name: Allow NAS to services
+    after: Allow NAS IPv6 to non private networks
+
+- name: system setup | NAS rules | Allow NAS to SamsungTV
+  tags: system,system-setup,rules,rules-nas
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: true
+    interface: NAS
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:NAS
+    destination: SamsungTV
+    name: Allow NAS to SamsungTV
+    after: Allow NAS to services

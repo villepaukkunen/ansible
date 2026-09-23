@@ -1,0 +1,200 @@
+- name: system setup | WG0 rules | Allow Ville-T470s to any
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: VilleT470s
+    destination: any
+    name: Allow Ville-T470s to any
+
+- name: system setup | WG0 rules | Allow Ville-S10 to any
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: VilleS10
+    destination: any
+    name: Allow Ville-S10 to any
+    after: Allow Ville-T470s to any
+
+- name: system setup | WG0 rules | Deny WG0 to WG0 pfSenseAdmin
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:WG0
+    destination: IP:WG0
+    destination_port: pfSenseAdmin
+    name: Deny WG0 to WG0 pfSenseAdmin
+    after: Allow Ville-S10 to any
+
+- name: system setup | WG0 rules | Allow traffic inside WG0
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: NET:WG0
+    destination: NET:WG0
+    name: Allow traffic inside WG0
+    after: Deny WG0 to WG0 pfSenseAdmin
+
+- name: system setup | WG0 rules | Deny WG0 to PERSONAL pfSenseAdmin
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:WG0
+    destination: IP:PERSONAL
+    destination_port: pfSenseAdmin
+    name: Deny WG0 to PERSONAL pfSenseAdmin
+    after: Allow traffic inside WG0
+
+- name: system setup | WG0 rules | Allow WG0 to PERSONAL
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: NET:WG0
+    destination: NET:PERSONAL
+    name: Allow WG0 to PERSONAL
+    after: Deny WG0 to PERSONAL pfSenseAdmin
+
+- name: system setup | WG0 rules | Allow WG0 to non private networks
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: NET:WG0
+    destination: "!PrivateNetworks"
+    name: Allow WG0 to non private networks
+    after: Allow WG0 to PERSONAL
+
+- name: system setup | WG0 rules | Allow WG0 IPv6 to non private networks
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet6
+    protocol: any
+    source: NET:WG0
+    destination: "!PrivateNetworks6"
+    name: Allow WG0 IPv6 to non private networks
+    after: Allow WG0 to non private networks
+
+- name: system setup | WG0 rules | Deny WG0 to IOT pfSenseAdmin
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:WG0
+    destination: IP:IOT
+    destination_port: pfSenseAdmin
+    name: Deny WG0 to IOT pfSenseAdmin
+    after: Allow WG0 IPv6 to non private networks
+
+- name: system setup | WG0 rules | Allow WG0 to IOT
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: NET:WG0
+    destination: NET:IOT
+    name: Allow WG0 to IOT
+    after: Deny WG0 to IOT pfSenseAdmin
+
+- name: system setup | WG0 rules | Allow WG0 to Hellevi
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: NET:WG0
+    destination: Hellevi
+    name: Allow WG0 to Hellevi
+    after: Allow WG0 to IOT
+
+- name: system setup | WG0 rules | Allow WG0 to HAProxy
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:WG0
+    destination: HAProxy
+    destination_port: 443
+    name: Allow WG0 to HAProxy
+    after: Allow WG0 to Hellevi
+
+- name: system setup | WG0 rules | Allow WG0 to NAS
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:WG0
+    destination: m73server1
+    destination_port: 22
+    name: Allow WG0 to NAS
+    after: Allow WG0 to HAProxy
+
+- name: system setup | WG0 rules | Allow WG0 to services
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:WG0
+    destination: Services
+    destination_port: WebPorts
+    name: Allow WG0 to services
+    after: Allow WG0 to NAS
+
+- name: system setup | WG0 rules | Allow WG0 to SuperTuxKart
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: tcp
+    source: NET:WG0
+    destination: SuperTuxKart
+    destination_port: SuperTuxKartPorts
+    name: Allow WG0 to SuperTuxKart
+    after: Allow WG0 to services

@@ -1,0 +1,52 @@
+- name: system setup | IOT rules | Allow IOT to DNS
+  tags: system,system-setup,rules,rules-iot
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: IOT
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:IOT
+    destination: IP:IOT
+    destination_port: 53
+    name: Allow IOT to DNS
+
+- name: system setup | IOT rules | Allow IOT to services
+  tags: system,system-setup,rules,rules-iot
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: IOT
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:IOT
+    destination: Services
+    destination_port: WebPorts
+    name: Allow IOT to services
+    after: Allow IOT to DNS
+
+- name: system setup | IOT rules | Allow IOT to non private networks
+  tags: system,system-setup,rules,rules-iot
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: IOT
+    ipprotocol: inet
+    protocol: any
+    source: NET:IOT
+    destination: "!PrivateNetworks"
+    name: Allow IOT to non private networks
+    after: Allow IOT to services
+
+- name: system setup | IOT rules | Allow IOT IPv6 to non private networks
+  tags: system,system-setup,rules,rules-iot
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: IOT
+    ipprotocol: inet6
+    protocol: any
+    source: NET:IOT
+    destination: "!PrivateNetworks6"
+    name: Allow IOT IPv6 to non private networks
+    after: Allow IOT to non private networks

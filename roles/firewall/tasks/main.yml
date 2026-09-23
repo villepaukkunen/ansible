@@ -13,3 +13,10 @@
     - import_tasks: system_setup/dhcp.yml
     - import_tasks: system_setup/aliases.yml
     - import_tasks: system_setup/routes.yml
+    - import_tasks: system_setup/rules-wan.yml
+    - import_tasks: system_setup/rules-mgmt.yml
+    - import_tasks: system_setup/rules-wg0.yml
+    - import_tasks: system_setup/rules-nas.yml
+    - import_tasks: system_setup/rules-srv.yml
+    - import_tasks: system_setup/rules-personal.yml
+    - import_tasks: system_setup/rules-iot.yml

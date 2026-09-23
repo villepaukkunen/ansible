@@ -1,0 +1,188 @@
+- name: system setup | PERSONAL rules | Deny PERSONAL to PERSONAL pfSenseAdmin
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:PERSONAL
+    destination: IP:PERSONAL
+    destination_port: pfSenseAdmin
+    name: Deny PERSONAL to PERSONAL pfSenseAdmin
+
+- name: system setup | PERSONAL rules | Allow traffic inside PERSONAL
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: any
+    source: NET:PERSONAL
+    destination: NET:PERSONAL
+    name: Allow traffic inside PERSONAL
+    after: Deny PERSONAL to PERSONAL pfSenseAdmin
+
+- name: system setup | PERSONAL rules | Deny PERSONAL to IOT pfSenseAdmin
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:PERSONAL
+    destination: IP:IOT
+    destination_port: pfSenseAdmin
+    name: Deny PERSONAL to IOT pfSenseAdmin
+    after: Allow traffic inside PERSONAL
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to IOT
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: any
+    source: NET:PERSONAL
+    destination: NET:IOT
+    name: Allow PERSONAL to IOT
+    after: Deny PERSONAL to IOT pfSenseAdmin
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to non private networks
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: any
+    source: NET:PERSONAL
+    destination: "!PrivateNetworks"
+    name: Allow PERSONAL to non private networks
+    after: Allow PERSONAL to IOT
+
+- name: system setup | PERSONAL rules | Allow PERSONAL IPv6 to non private networks
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet6
+    protocol: any
+    source: NET:PERSONAL
+    destination: "!PrivateNetworks6"
+    name: Allow PERSONAL IPv6 to non private networks
+    after: Allow PERSONAL to non private networks
+
+- name: system setup | PERSONAL rules | Deny PERSONAL to WG0 pfSenseAdmin
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: block
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:PERSONAL
+    destination: IP:WG0
+    destination_port: pfSenseAdmin
+    name: Deny PERSONAL to WG0 pfSenseAdmin
+    after: Allow PERSONAL IPv6 to non private networks
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to WG0
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: any
+    source: NET:PERSONAL
+    destination: NET:WG0
+    name: Allow PERSONAL to WG0
+    after: Deny PERSONAL to WG0 pfSenseAdmin
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to Hellevi
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: any
+    source: NET:PERSONAL
+    destination: Hellevi
+    name: Allow PERSONAL to Hellevi
+    after: Allow PERSONAL to WG0
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to HAProxy
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:PERSONAL
+    destination: HAProxy
+    destination_port: 443
+    name: Allow PERSONAL to HAProxy
+    after: Allow PERSONAL to Hellevi
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to NAS
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:PERSONAL
+    destination: m73server1
+    destination_port: 22
+    name: Allow PERSONAL to NAS
+    after: Allow PERSONAL to HAProxy
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to services
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp/udp
+    source: NET:PERSONAL
+    destination: Services
+    destination_port: WebPorts
+    name: Allow PERSONAL to services
+    after: Allow PERSONAL to NAS
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to SuperTuxKart
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: tcp
+    source: NET:PERSONAL
+    destination: SuperTuxKart
+    destination_port: SuperTuxKartPorts
+    name: Allow PERSONAL to SuperTuxKart
+    after: Allow PERSONAL to services
+
+- name: system setup | PERSONAL rules | Allow PERSONAL to netboot.xyz
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: udp
+    source: NET:PERSONAL
+    destination: NetbootXYZ
+    destination_port: 69
+    name: Allow PERSONAL to netboot.xyz
+    after: Allow PERSONAL to SuperTuxKart

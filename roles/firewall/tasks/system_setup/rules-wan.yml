@@ -1,0 +1,12 @@
+- name: system setup | WAN rules | Wireguard
+  tags: system,system-setup,rules,rules-wan
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WAN
+    ipprotocol: inet
+    protocol: udp
+    source: any
+    destination: (self)
+    destination_port: 51820
+    name: Wireguard
