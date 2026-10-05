@@ -1,4 +1,4 @@
-- name: system setup | rules | SRV | Deny SRV to SRV pfSenseAdmin
+- name: system setup | rules | SRV | Deny SRV to pfSenseAdmin
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
     action: block
@@ -7,9 +7,9 @@
     ipprotocol: inet
     protocol: tcp/udp
     source: NET:SRV
-    destination: IP:SRV
+    destination: (self)
     destination_port: pfSenseAdmin
-    name: Deny SRV to SRV pfSenseAdmin
+    name: Deny SRV to pfSenseAdmin
 
 - name: system setup | rules | SRV | Deny SRV to NetbootXYZ Ports
   tags: system,system-setup,rules,rules-srv
@@ -23,7 +23,7 @@
     destination: NetbootXYZ
     destination_port: NetbootXYZports
     name: Deny SRV to NetbootXYZ Ports
-    after: Deny SRV to SRV pfSenseAdmin
+    after: Deny SRV to pfSenseAdmin
 
 - name: system setup | rules | SRV | Allow traffic inside SRV
   tags: system,system-setup,rules,rules-srv
@@ -38,20 +38,6 @@
     name: Allow traffic inside SRV
     after: Deny SRV to NetbootXYZ Ports
 
-- name: system setup | rules | SRV | Deny SRV to NAS pfSenseAdmin
-  tags: system,system-setup,rules,rules-srv
-  pfsensible.core.pfsense_rule:
-    action: block
-    disabled: false
-    interface: SRV
-    ipprotocol: inet
-    protocol: tcp/udp
-    source: NET:SRV
-    destination: IP:NAS
-    destination_port: pfSenseAdmin
-    name: Deny SRV to NAS pfSenseAdmin
-    after: Allow traffic inside SRV
-
 - name: system setup | rules | SRV | Allow SRV to NAS
   tags: system,system-setup,rules,rules-srv
   pfsensible.core.pfsense_rule:
@@ -63,7 +49,7 @@
     source: NET:SRV
     destination: NET:NAS
     name: Allow SRV to NAS
-    after: Deny SRV to NAS pfSenseAdmin
+    after: Allow traffic inside SRV
 
 - name: system setup | rules | SRV | Allow SRV to m600-server-1
   tags: system,system-setup,rules,rules-srv

@@ -1,4 +1,4 @@
-- name: system setup | rules | PERSONAL | Deny PERSONAL to PERSONAL pfSenseAdmin
+- name: system setup | rules | PERSONAL | Deny PERSONAL to pfSenseAdmin
   tags: system,system-setup,rules,rules-personal
   pfsensible.core.pfsense_rule:
     action: block
@@ -7,9 +7,9 @@
     ipprotocol: inet
     protocol: tcp/udp
     source: NET:PERSONAL
-    destination: IP:PERSONAL
+    destination: (self)
     destination_port: pfSenseAdmin
-    name: Deny PERSONAL to PERSONAL pfSenseAdmin
+    name: Deny PERSONAL to pfSenseAdmin
 
 - name: system setup | rules | PERSONAL | Allow traffic inside PERSONAL
   tags: system,system-setup,rules,rules-personal
@@ -22,21 +22,7 @@
     source: NET:PERSONAL
     destination: NET:PERSONAL
     name: Allow traffic inside PERSONAL
-    after: Deny PERSONAL to PERSONAL pfSenseAdmin
-
-- name: system setup | rules | PERSONAL | Deny PERSONAL to IOT pfSenseAdmin
-  tags: system,system-setup,rules,rules-personal
-  pfsensible.core.pfsense_rule:
-    action: block
-    disabled: false
-    interface: PERSONAL
-    ipprotocol: inet
-    protocol: tcp/udp
-    source: NET:PERSONAL
-    destination: IP:IOT
-    destination_port: pfSenseAdmin
-    name: Deny PERSONAL to IOT pfSenseAdmin
-    after: Allow traffic inside PERSONAL
+    after: Deny PERSONAL to pfSenseAdmin
 
 - name: system setup | rules | PERSONAL | Allow PERSONAL to IOT
   tags: system,system-setup,rules,rules-personal
@@ -49,47 +35,7 @@
     source: NET:PERSONAL
     destination: NET:IOT
     name: Allow PERSONAL to IOT
-    after: Deny PERSONAL to IOT pfSenseAdmin
-
-- name: system setup | rules | PERSONAL | Allow PERSONAL to non private networks
-  tags: system,system-setup,rules,rules-personal
-  pfsensible.core.pfsense_rule:
-    action: pass
-    disabled: false
-    interface: PERSONAL
-    ipprotocol: inet
-    protocol: any
-    source: NET:PERSONAL
-    destination: "!PrivateNetworks"
-    name: Allow PERSONAL to non private networks
-    after: Allow PERSONAL to IOT
-
-- name: system setup | rules | PERSONAL | Allow PERSONAL IPv6 to non private networks
-  tags: system,system-setup,rules,rules-personal
-  pfsensible.core.pfsense_rule:
-    action: pass
-    disabled: false
-    interface: PERSONAL
-    ipprotocol: inet6
-    protocol: any
-    source: NET:PERSONAL
-    destination: "!PrivateNetworks6"
-    name: Allow PERSONAL IPv6 to non private networks
-    after: Allow PERSONAL to non private networks
-
-- name: system setup | rules | PERSONAL | Deny PERSONAL to WG0 pfSenseAdmin
-  tags: system,system-setup,rules,rules-personal
-  pfsensible.core.pfsense_rule:
-    action: block
-    disabled: false
-    interface: PERSONAL
-    ipprotocol: inet
-    protocol: tcp/udp
-    source: NET:PERSONAL
-    destination: IP:WG0
-    destination_port: pfSenseAdmin
-    name: Deny PERSONAL to WG0 pfSenseAdmin
-    after: Allow PERSONAL IPv6 to non private networks
+    after: Allow traffic inside PERSONAL
 
 - name: system setup | rules | PERSONAL | Allow PERSONAL to WG0
   tags: system,system-setup,rules,rules-personal
@@ -102,7 +48,7 @@
     source: NET:PERSONAL
     destination: NET:WG0
     name: Allow PERSONAL to WG0
-    after: Deny PERSONAL to WG0 pfSenseAdmin
+    after: Allow PERSONAL to IOT
 
 - name: system setup | rules | PERSONAL | Allow PERSONAL to Hellevi
   tags: system,system-setup,rules,rules-personal
@@ -186,3 +132,29 @@
     destination_port: 69
     name: Allow PERSONAL to netboot.xyz
     after: Allow PERSONAL to SuperTuxKart
+
+- name: system setup | rules | PERSONAL | Allow PERSONAL to non private networks
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet
+    protocol: any
+    source: NET:PERSONAL
+    destination: "!PrivateNetworks"
+    name: Allow PERSONAL to non private networks
+    after: Allow PERSONAL to netboot.xyz
+
+- name: system setup | rules | PERSONAL | Allow PERSONAL IPv6 to non private networks
+  tags: system,system-setup,rules,rules-personal
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: PERSONAL
+    ipprotocol: inet6
+    protocol: any
+    source: NET:PERSONAL
+    destination: "!PrivateNetworks6"
+    name: Allow PERSONAL IPv6 to non private networks
+    after: Allow PERSONAL to non private networks

@@ -23,7 +23,7 @@
     name: Allow Ville-S10 to any
     after: Allow Ville-T470s to any
 
-- name: system setup | rules | WG0 | Deny WG0 to WG0 pfSenseAdmin
+- name: system setup | rules | WG0 | Deny WG0 to pfSenseAdmin
   tags: system,system-setup,rules,rules-wg0
   pfsensible.core.pfsense_rule:
     action: block
@@ -32,9 +32,9 @@
     ipprotocol: inet
     protocol: tcp/udp
     source: NET:WG0
-    destination: IP:WG0
+    destination: (self)
     destination_port: pfSenseAdmin
-    name: Deny WG0 to WG0 pfSenseAdmin
+    name: Deny WG0 to pfSenseAdmin
     after: Allow Ville-S10 to any
 
 - name: system setup | rules | WG0 | Allow traffic inside WG0
@@ -48,21 +48,7 @@
     source: NET:WG0
     destination: NET:WG0
     name: Allow traffic inside WG0
-    after: Deny WG0 to WG0 pfSenseAdmin
-
-- name: system setup | rules | WG0 | Deny WG0 to PERSONAL pfSenseAdmin
-  tags: system,system-setup,rules,rules-wg0
-  pfsensible.core.pfsense_rule:
-    action: block
-    disabled: false
-    interface: WG0
-    ipprotocol: inet
-    protocol: tcp/udp
-    source: NET:WG0
-    destination: IP:PERSONAL
-    destination_port: pfSenseAdmin
-    name: Deny WG0 to PERSONAL pfSenseAdmin
-    after: Allow traffic inside WG0
+    after: Deny WG0 to pfSenseAdmin
 
 - name: system setup | rules | WG0 | Allow WG0 to PERSONAL
   tags: system,system-setup,rules,rules-wg0
@@ -75,47 +61,7 @@
     source: NET:WG0
     destination: NET:PERSONAL
     name: Allow WG0 to PERSONAL
-    after: Deny WG0 to PERSONAL pfSenseAdmin
-
-- name: system setup | rules | WG0 | Allow WG0 to non private networks
-  tags: system,system-setup,rules,rules-wg0
-  pfsensible.core.pfsense_rule:
-    action: pass
-    disabled: false
-    interface: WG0
-    ipprotocol: inet
-    protocol: any
-    source: NET:WG0
-    destination: "!PrivateNetworks"
-    name: Allow WG0 to non private networks
-    after: Allow WG0 to PERSONAL
-
-- name: system setup | rules | WG0 | Allow WG0 IPv6 to non private networks
-  tags: system,system-setup,rules,rules-wg0
-  pfsensible.core.pfsense_rule:
-    action: pass
-    disabled: false
-    interface: WG0
-    ipprotocol: inet6
-    protocol: any
-    source: NET:WG0
-    destination: "!PrivateNetworks6"
-    name: Allow WG0 IPv6 to non private networks
-    after: Allow WG0 to non private networks
-
-- name: system setup | rules | WG0 | Deny WG0 to IOT pfSenseAdmin
-  tags: system,system-setup,rules,rules-wg0
-  pfsensible.core.pfsense_rule:
-    action: block
-    disabled: false
-    interface: WG0
-    ipprotocol: inet
-    protocol: tcp/udp
-    source: NET:WG0
-    destination: IP:IOT
-    destination_port: pfSenseAdmin
-    name: Deny WG0 to IOT pfSenseAdmin
-    after: Allow WG0 IPv6 to non private networks
+    after: Allow traffic inside WG0
 
 - name: system setup | rules | WG0 | Allow WG0 to IOT
   tags: system,system-setup,rules,rules-wg0
@@ -128,7 +74,7 @@
     source: NET:WG0
     destination: NET:IOT
     name: Allow WG0 to IOT
-    after: Deny WG0 to IOT pfSenseAdmin
+    after: Allow WG0 to PERSONAL
 
 - name: system setup | rules | WG0 | Allow WG0 to Hellevi
   tags: system,system-setup,rules,rules-wg0
@@ -198,3 +144,29 @@
     destination_port: SuperTuxKartPorts
     name: Allow WG0 to SuperTuxKart
     after: Allow WG0 to services
+
+- name: system setup | rules | WG0 | Allow WG0 to non private networks
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet
+    protocol: any
+    source: NET:WG0
+    destination: "!PrivateNetworks"
+    name: Allow WG0 to non private networks
+    after: Allow WG0 to SuperTuxKart
+
+- name: system setup | rules | WG0 | Allow WG0 IPv6 to non private networks
+  tags: system,system-setup,rules,rules-wg0
+  pfsensible.core.pfsense_rule:
+    action: pass
+    disabled: false
+    interface: WG0
+    ipprotocol: inet6
+    protocol: any
+    source: NET:WG0
+    destination: "!PrivateNetworks6"
+    name: Allow WG0 IPv6 to non private networks
+    after: Allow WG0 to non private networks
