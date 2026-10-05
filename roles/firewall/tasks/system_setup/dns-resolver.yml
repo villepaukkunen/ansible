@@ -1,0 +1,17 @@
+- name: system setup | dns | configure dns resolver
+  tags: system,system-setup,dns
+  pfsensible.core.pfsense_dns_resolver:
+    state: present
+    enablessl: false
+    active_interface: [all]
+    outgoing_interface: [all]
+    dnssec: false
+    forwarding: true
+    regdhcp: true
+    regdhcpstatic: true
+    hosts:
+      - { host: m600-server-1, domain: mandariini.uk, ip: 192.168.20.15 }
+    custom_options: "server:include: /var/unbound/pfb_dnsbl.*conf"
+    hideidentity: true
+    hideversion: true
+    dnssecstripped: false

@@ -11,6 +11,7 @@
     - import_tasks: system_setup/vlans.yml
     - import_tasks: system_setup/interfaces.yml
     - import_tasks: system_setup/dhcp.yml
+    - import_tasks: system_setup/dns-resolver.yml
     - import_tasks: system_setup/aliases.yml
     - import_tasks: system_setup/routes.yml
     - import_tasks: system_setup/rules-wan.yml
