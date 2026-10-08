@@ -42,6 +42,15 @@ pipeline {
                 }
             }
         }
+        stage('Install required collections') {
+            steps {
+                container('ansible') {
+                    sh '''
+                        ansible-galaxy collection install pfsensible.core
+                    '''
+                }
+            }
+        }
         stage('Configure servers') {
             steps {
                 container('ansible') {
