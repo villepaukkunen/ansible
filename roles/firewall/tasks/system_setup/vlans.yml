@@ -1,0 +1,31 @@
+- name: system setup | vlans | configure NAS vlan
+  tags: system,system-setup,vlans
+  pfsensible.core.pfsense_vlan:
+    interface: lagg0
+    vlan_id: 3
+    descr: NAS
+    state: present
+
+- name: system setup | vlans | configure Servers vlan
+  tags: system,system-setup,vlans
+  pfsensible.core.pfsense_vlan:
+    interface: lagg0
+    vlan_id: 4
+    descr: Servers
+    state: present
+
+- name: system setup | vlans | configure Personal Devices vlan
+  tags: system,system-setup,vlans
+  pfsensible.core.pfsense_vlan:
+    interface: lagg0
+    vlan_id: 5
+    descr: Personal Devices
+    state: present
+
+- name: system setup | vlans | configure IoT Devices vlan
+  tags: system,system-setup,vlans
+  pfsensible.core.pfsense_vlan:
+    interface: lagg0
+    vlan_id: 6
+    descr: IoT Devices
+    state: present

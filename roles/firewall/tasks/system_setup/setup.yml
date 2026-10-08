@@ -1,0 +1,11 @@
+- name: system setup | setup | configure general setup
+  tags: system,system-setup,general-setup
+  pfsensible.core.pfsense_setup:
+    hostname: pfSense
+    domain: mandariini.uk
+    dns_addresses: 192.168.10.50 192.168.10.60
+    dnslocalhost: local
+    timezone: Europe/Helsinki
+    language: en_US
+    webguicss: pfSense-dark
+    webguifixedmenu: true

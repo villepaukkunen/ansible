@@ -1,0 +1,25 @@
+# Load variables
+- include_vars: 'mac-addresses.yml'
+  tags: always
+
+- block:
+    # install software
+    - import_tasks: software/packages.yml
+
+    ## system setup
+    - import_tasks: system_setup/setup.yml
+    - import_tasks: system_setup/vlans.yml
+    - import_tasks: system_setup/interfaces.yml
+    - import_tasks: system_setup/dhcp.yml
+    - import_tasks: system_setup/dns-resolver.yml
+    - import_tasks: system_setup/aliases.yml
+    - import_tasks: system_setup/routes.yml
+    - import_tasks: system_setup/rules-wan.yml
+    - import_tasks: system_setup/rules-mgmt.yml
+    - import_tasks: system_setup/rules-wg0.yml
+    - import_tasks: system_setup/rules-nas.yml
+    - import_tasks: system_setup/rules-srv.yml
+    - import_tasks: system_setup/rules-personal.yml
+    - import_tasks: system_setup/rules-iot.yml
+    - import_tasks: system_setup/nat.yml
+    - import_tasks: system_setup/haproxy.yml

@@ -1,0 +1,71 @@
+- name: system setup | haproxy | configure tp-link haproxy backend
+  tags: system,system-setup,haproxy
+  pfsensible.haproxy.pfsense_haproxy_backend:
+    name: TP-Link
+    balance: none
+    connection_timeout: null
+    server_timeout: null
+    retries: null
+    check_type: none
+    httpcheck_method: OPTIONS
+    state: present
+
+- name: system setup | haproxy | configure tp-link haproxy backend server
+  tags: system,system-setup,haproxy
+  pfsensible.haproxy.pfsense_haproxy_backend_server:
+    backend: TP-Link
+    mode: active
+    name: TP-Link
+    address: 192.168.20.1
+    port: 443
+    ssl: true
+    checkssl: false
+    state: present
+
+- name: system setup | haproxy | configure hpe haproxy backend
+  tags: system,system-setup,haproxy
+  pfsensible.haproxy.pfsense_haproxy_backend:
+    name: HPE
+    balance: none
+    connection_timeout: null
+    server_timeout: null
+    retries: null
+    check_type: none
+    httpcheck_method: OPTIONS
+    state: present
+
+- name: system setup | haproxy | configure hpe haproxy backend server
+  tags: system,system-setup,haproxy
+  pfsensible.haproxy.pfsense_haproxy_backend_server:
+    backend: HPE
+    mode: active
+    name: HPE
+    address: 192.168.10.2
+    port: 443
+    ssl: true
+    checkssl: false
+    state: present
+
+- name: system setup | haproxy | configure hp-printer haproxy backend
+  tags: system,system-setup,haproxy
+  pfsensible.haproxy.pfsense_haproxy_backend:
+    name: HP-Printer
+    balance: none
+    connection_timeout: null
+    server_timeout: null
+    retries: null
+    check_type: none
+    httpcheck_method: OPTIONS
+    state: present
+
+- name: system setup | haproxy | configure hp-printer haproxy backend server
+  tags: system,system-setup,haproxy
+  pfsensible.haproxy.pfsense_haproxy_backend_server:
+    backend: HP-Printer
+    mode: active
+    name: HP-Printer
+    address: 192.168.20.60
+    port: 443
+    ssl: true
+    checkssl: false
+    state: present

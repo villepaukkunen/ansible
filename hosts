@@ -2,6 +2,9 @@
 host_domain = mandariini.uk
 ansible_host = {{ inventory_hostname_short }}.{{ host_domain }}
 
+[firewall]
+pfSense
+
 [server]
 acer-server
 m600-server-1
