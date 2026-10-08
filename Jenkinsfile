@@ -46,7 +46,7 @@ pipeline {
             steps {
                 container('ansible') {
                     sh '''
-                        ansible-galaxy collection install pfsensible.core
+                        ansible-galaxy collection install pfsensible.core pfsensible.haproxy
                     '''
                 }
             }
