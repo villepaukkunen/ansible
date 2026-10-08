@@ -2,6 +2,7 @@
 
 # options
 ANSIBLEUSER="ansible"
+COLLECTIONS="pfsensible.core pfsensible.haproxy"
 BRANCH="{{ branch | default('main') }}"
 LOGFILE="/var/log/ansible.log"
 REPO="https://github.com/villepaukkunen/ansible.git"
@@ -17,8 +18,12 @@ then
 else
     if [ ! $1 == "" ]
     then
+        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-galaxy collection install $COLLECTIONS 2>&1
+            | sudo -iH -u $ANSIBLEUSER tee -a $LOGFILE
         $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -U $REPO -C $BRANCH --tags $1 2>&1
     else
+        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-galaxy collection install $COLLECTIONS 2>&1
+            | sudo -iH -u $ANSIBLEUSER tee -a $LOGFILE
         $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -o -U $REPO -C $BRANCH 2>&1
     fi
 fi
