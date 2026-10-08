@@ -6,6 +6,5 @@
       - pfSense-pkg-acme
       - pfSense-pkg-haproxy
       - pfSense-pkg-pfBlockerNG-devel
-      - pfSense-pkg-sudo
       - pfSense-pkg-System_Patches
       - pfSense-pkg-WireGuard
