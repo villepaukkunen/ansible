@@ -16,12 +16,13 @@ then
         | tee -a $LOGFILE
     exit 1
 else
+    $PRECMD sudo -iH -u $ANSIBLEUSER ansible-galaxy collection install $COLLECTIONS
     if [ ! $1 == "" ]
     then
-        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-galaxy collection install $COLLECTIONS 2>&1
-        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -U $REPO -C $BRANCH --tags $1 2>&1
+        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY \
+            -U $REPO -C $BRANCH --tags $1 2>&1
     else
-        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-galaxy collection install $COLLECTIONS 2>&1
-        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -o -U $REPO -C $BRANCH 2>&1
+        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY \
+            -o -U $REPO -C $BRANCH 2>&1
     fi
 fi
