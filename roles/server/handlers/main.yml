@@ -3,6 +3,12 @@
   service:
     daemon_reload: true
 
+- name: restart_autofs
+  tags: system,system-setup,autofs
+  service:
+    name: autofs.service
+    state: restarted
+
 - name: restart_ddclient
   tags: system,system-setup,ddclient
   service:
