@@ -9,6 +9,12 @@
     name: ddclient.service
     state: restarted
 
+- name: restart_nfs_kernel_server
+  tags: system,system-setup,nfs_kernel_server
+  service:
+    name: nfs-kernel-server.service
+    state: restarted
+
 - name: restart_systemd_logind
   tags: system,system-setup,logind
   service:
