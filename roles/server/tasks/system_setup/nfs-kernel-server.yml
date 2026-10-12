@@ -3,5 +3,4 @@
   blockinfile:
     path: /etc/exports
     block: "{{ exports }}"
-  when: nfs_kernel_server is defined and nfs_kernel_server == true
   notify: restart_nfs_kernel_server

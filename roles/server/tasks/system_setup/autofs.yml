@@ -1,0 +1,13 @@
+- name: system setup | autofs | configure auto.master
+  tags: system,system-setup,autofs
+  blockinfile:
+    path: /etc/auto.master
+    block: "{{ auto_master }}"
+  notify: restart_autofs
+
+- name: system setup | autofs | configure auto.nfs
+  tags: system,system-setup,autofs
+  blockinfile:
+    path: /etc/auto.nfs
+    block: "{{ auto_nfs }}"
+  notify: restart_autofs

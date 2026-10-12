@@ -1,0 +1,5 @@
+- name: software | nfs-kernel-server | install package
+  tags: packages,nfs,server-packages
+  package:
+    name: nfs-kernel-server
+    state: present
