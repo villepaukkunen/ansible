@@ -7,6 +7,14 @@
   when: k3s is defined
 
 - block:
+    ## install software
+    - import_tasks: software/ddclient.yml
+    - include_tasks: software/docker.yml
+      when: docker is defined and docker == true
+    - import_tasks: software/nfs.yml
+    - import_tasks: software/wireguard.yml
+    - import_tasks: software/zfs.yml
+
     ## system setup
     - include_tasks: system_setup/ddclient.yml
       when: ddclient is defined and ddclient == true
@@ -26,11 +34,3 @@
     ## User configs
     - import_tasks: users/ansible.yml
     - import_tasks: users/ville.yml
-
-    ## install software
-    - import_tasks: software/ddclient.yml
-    - include_tasks: software/docker.yml
-      when: docker is defined and docker == true
-    - import_tasks: software/nfs.yml
-    - import_tasks: software/wireguard.yml
-    - import_tasks: software/zfs.yml
