@@ -7,4 +7,5 @@ randomized_delay: "60m"
 
 # application selection
 ddclient: true
+nfs_kernel_server: true
 wireguard: true
