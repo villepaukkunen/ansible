@@ -1,6 +1,7 @@
 ssh: true
 docker: true
 zfs: true
+host_vars: true
 
 # unattended upgrades
 upgrade_time: "5:00"
