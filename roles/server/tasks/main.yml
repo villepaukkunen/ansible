@@ -12,6 +12,7 @@
       when: ddclient is defined and ddclient == true
     - include_tasks: system_setup/docker.yml
       when: docker is defined and docker == true
+    - import_tasks: system_setup/nfs.yml
     - include_tasks: system_setup/k3s.yml
       when: k3s is defined
     - include_tasks: system_setup/logind_conf.yml
