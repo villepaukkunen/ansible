@@ -1,0 +1,6 @@
+- name: system setup | nfs-kernel-server | configure exports
+  tags: system,system-setup,nfs
+  blockinfile:
+    path: /etc/exports
+    block: "{{ exports }}"
+  notify: restart_nfs_kernel_server

@@ -3,10 +3,22 @@
   service:
     daemon_reload: true
 
+- name: restart_autofs
+  tags: system,system-setup,autofs
+  service:
+    name: autofs.service
+    state: restarted
+
 - name: restart_ddclient
   tags: system,system-setup,ddclient
   service:
     name: ddclient.service
+    state: restarted
+
+- name: restart_nfs_kernel_server
+  tags: system,system-setup,nfs_kernel_server
+  service:
+    name: nfs-kernel-server.service
     state: restarted
 
 - name: restart_systemd_logind

@@ -1,0 +1,5 @@
+- name: software | autofs | install package
+  tags: packages,autofs,server-packages
+  package:
+    name: autofs
+    state: present
