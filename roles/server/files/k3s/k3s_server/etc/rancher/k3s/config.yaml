@@ -12,4 +12,3 @@ kube-controller-manager-arg:
   - 'terminated-pod-gc-threshold=100'
 kubelet-arg:
   - config=/etc/rancher/k3s/kubelet.conf
-etcd-expose-metrics: true
