@@ -13,6 +13,7 @@ latex: true
 obsidian: true
 octave: true
 pycharm: true
+remote_utilities_viewer: true
 rustdesk: true
 signal: true
 slack: true

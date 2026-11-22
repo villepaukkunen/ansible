@@ -1,0 +1,8 @@
+- name: software | remote-utilities-viewer | install package
+  tags: packages,remote-utilities-viewer,deb,workstation-packages
+  apt:
+    deb: https://www.remoteutilities.com/download/viewer-{{ remote_utilities_version }}_amd64.deb
+  when:
+    - ansible_facts["distribution"] == "Ubuntu"
+    - remote_utilities_viewer is defined
+    - remote_utilities_viewer == true

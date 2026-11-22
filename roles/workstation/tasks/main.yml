@@ -61,6 +61,7 @@
     - import_tasks: software/obsidian.yml
     - import_tasks: software/octave.yml
     - import_tasks: software/pycharm.yml
+    - import_tasks: software/remote-utilities-viewer.yml
     - import_tasks: software/rustdesk.yml
     - import_tasks: software/signal.yml
     - import_tasks: software/slack.yml
