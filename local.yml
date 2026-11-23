@@ -2,6 +2,10 @@
   become: true
   pre_tasks:
 
+- hosts: OPNsense_firewall
+  roles:
+    - OPNsense
+
 - hosts: pfSense_firewall
   roles:
     - pfSense

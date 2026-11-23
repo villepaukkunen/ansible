@@ -2,6 +2,9 @@
 host_domain = mandariini.uk
 ansible_host = {{ inventory_hostname_short }}.{{ host_domain }}
 
+[OPNsense_firewall]
+OPNsense
+
 [pfSense_firewall]
 pfSense
 
