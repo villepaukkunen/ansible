@@ -2,9 +2,9 @@
   become: true
   pre_tasks:
 
-- hosts: firewall
+- hosts: pfSense_firewall
   roles:
-    - firewall
+    - pfSense
 
 - hosts: server
   become: true
