@@ -1,0 +1,31 @@
+- name: system setup | vlans | configure NAS vlan
+  tags: system,system-setup,vlans
+  oxlorg.opnsense.interface_vlan:
+    interface: lagg0
+    vlan: 3
+    description: NAS
+    state: present
+
+- name: system setup | vlans | configure Servers vlan
+  tags: system,system-setup,vlans
+  oxlorg.opnsense.interface_vlan:
+    interface: lagg0
+    vlan: 4
+    description: Servers
+    state: present
+
+- name: system setup | vlans | configure Personal Devices vlan
+  tags: system,system-setup,vlans
+  oxlorg.opnsense.interface_vlan:
+    interface: lagg0
+    vlan: 5
+    description: Personal Devices
+    state: present
+
+- name: system setup | vlans | configure IoT Devices vlan
+  tags: system,system-setup,vlans
+  oxlorg.opnsense.interface_vlan:
+    interface: lagg0
+    vlan: 6
+    description: IoT Devices
+    state: present

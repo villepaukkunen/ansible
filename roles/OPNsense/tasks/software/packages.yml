@@ -1,0 +1,7 @@
+- name: system setup | install packages
+  tags: system,packages
+  package:
+    state: present
+    oxlorg.opnsense.package:
+        name: ['os-acme-client', 'os-haproxy']
+        action: 'install'
