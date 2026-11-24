@@ -3,6 +3,13 @@
   pre_tasks:
 
 - hosts: OPNsense_firewall
+  connection: local
+  gather_facts: false
+  module_defaults:
+    group/oxlorg.opnsense.all:
+        firewall: '{{ ansible_host }}'
+        api_credential_file: '~/.opn_key'
+        ssl_verify: false
   roles:
     - OPNsense
 
