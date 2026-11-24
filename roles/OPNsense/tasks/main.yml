@@ -8,3 +8,4 @@
 
     ## system setup
     - import_tasks: system_setup/vlans.yml
+    - import_tasks: system_setup/aliases.yml
