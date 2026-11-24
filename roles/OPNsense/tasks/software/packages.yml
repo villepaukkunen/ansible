@@ -1,5 +1,5 @@
 - name: system setup | install packages
   tags: system,packages
   oxlorg.opnsense.package:
-      name: ['os-acme-client', 'os-crowdsec', 'os-haproxy']
+      name: ['os-acme-client', 'os-ddclient', 'os-crowdsec', 'os-haproxy']
       action: 'install'
