@@ -9,26 +9,26 @@
   tags: system,system-setup,interfaces
   oxlorg.opnsense.interface_assignment:
     description: NAS
-    device: lagg0.3
+    device: vlan0.3
     enabled: true
 
 - name: system setup | interfaces | configure SRV interface
   tags: system,system-setup,interfaces
   oxlorg.opnsense.interface_assignment:
     description: SRV
-    device: lagg0.4
+    device: vlan0.4
     enabled: true
 
 - name: system setup | interfaces | configure PERSONAL interface
   tags: system,system-setup,interfaces
   oxlorg.opnsense.interface_assignment:
     description: PERSONAL
-    device: lagg0.5
+    device: vlan0.5
     enabled: true
 
 - name: system setup | interfaces | configure IOT interface
   tags: system,system-setup,interfaces
   oxlorg.opnsense.interface_assignment:
     description: IOT
-    device: lagg0.6
+    device: vlan0.6
     enabled: true
