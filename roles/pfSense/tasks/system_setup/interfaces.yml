@@ -2,7 +2,7 @@
   tags: system,system-setup,interfaces
   pfsensible.core.pfsense_interface:
     descr: MGMT
-    interface: lagg0
+    interface: lagg0.2
     enable: True
     ipv4_type: static
     ipv6_type: none
