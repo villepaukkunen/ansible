@@ -2,7 +2,7 @@
   tags: system,system-setup,interfaces
   oxlorg.opnsense.interface_assignment:
     description: MGMT
-    device: lagg0
+    device: vlan0.2
     enabled: true
 
 - name: system setup | interfaces | configure NAS interface
