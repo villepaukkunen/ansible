@@ -1,3 +1,11 @@
+- name: system setup | vlans | configure Management vlan
+  tags: system,system-setup,vlans
+  pfsensible.core.pfsense_vlan:
+    interface: lagg0
+    vlan_id: 2
+    descr: Management
+    state: present
+
 - name: system setup | vlans | configure NAS vlan
   tags: system,system-setup,vlans
   pfsensible.core.pfsense_vlan:
