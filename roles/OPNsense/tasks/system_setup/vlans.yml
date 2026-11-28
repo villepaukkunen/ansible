@@ -1,3 +1,11 @@
+- name: system setup | vlans | configure Management vlan
+  tags: system,system-setup,vlans
+  oxlorg.opnsense.interface_vlan:
+    interface: lagg0
+    vlan: 2
+    description: Management
+    state: present
+
 - name: system setup | vlans | configure NAS vlan
   tags: system,system-setup,vlans
   oxlorg.opnsense.interface_vlan:
